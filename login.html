@@ -1,0 +1,125 @@
+<!DOCTYPE html><html class="login-pf" lang="en" dir="ltr"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+
+            <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Sign in to HHN</title>
+    <link rel="icon" href="images/favicon.ico">
+            <link href="css/patternfly.min_1.css" rel="stylesheet">
+            <link href="css/patternfly.min.css" rel="stylesheet">
+            <link href="css/patternfly-additions.min.css" rel="stylesheet">
+            <link href="css/pficon.css" rel="stylesheet">
+            <link href="css/login.css" rel="stylesheet">
+            <link href="css/styles.css" rel="stylesheet">
+            <script src="js/script.js" type="text/javascript"></script>
+    <script type="importmap">
+        {
+            "imports": {
+                "rfc4648": "/resources/teryc/common/keycloak/vendor/rfc4648/rfc4648.js"
+            }
+        }
+    </script>
+    <script src="js/menu-button-links.js" type="module"></script>
+    <script type="module">
+        import { startSessionPolling } from "/resources/teryc/login/hhn/js/authChecker.js";
+
+        startSessionPolling(
+          "/realms/hhn/login-actions/restart?client_id=hhn_common_ilias&tab_id=bWOn0_C3vSw&client_data=eyJydSI6Imh0dHBzOi8vaWxpYXMuaHMtaGVpbGJyb25uLmRlL29wZW5pZGNvbm5lY3QucGhwIiwicnQiOiJjb2RlIiwic3QiOiIwZDc4ZTgyYTUyZDI3MTVjZTQ2NzM2ZjBjMzExZWRiMSJ9&skip_logout=true"
+        );
+    </script>
+        <script type="module">
+            import { checkAuthSession } from "/resources/teryc/login/hhn/js/authChecker.js";
+
+            checkAuthSession(
+                "clK4/wPil0yele+7JsHTmIum4YPklbm0p/DRMjqqu3g"
+            );
+        </script>
+</head>
+
+<body class="">
+<div class="login-pf-page">
+    <div id="kc-header" class="login-pf-page-header">
+        <div id="kc-header-wrapper" class=""><div class="kc-logo-text"><span>HHN</span></div></div>
+    </div>
+    <div class="card-pf">
+        <header class="login-pf-header">
+                <div class="pf-c-dropdown" id="kc-locale">
+                    <div id="kc-locale-wrapper" class="">
+                        <div id="kc-locale-dropdown" class="menu-button-links ">
+                            <button tabindex="1" id="kc-current-locale-link" aria-label="languages" aria-haspopup="true" aria-expanded="false" aria-controls="language-switch1">English</button>
+                            <ul role="menu" tabindex="-1" aria-labelledby="kc-current-locale-link" aria-activedescendant="" id="language-switch1" class="pf-c-dropdown__menu pf-m-align-right">
+                                    <li class="" role="none">
+                                        <a role="menuitem" id="language-1" class="pf-c-dropdown__menu-item" href="/realms/hhn/login-actions/authenticate?client_id=hhn_common_ilias&tab_id=bWOn0_C3vSw&client_data=eyJydSI6Imh0dHBzOi8vaWxpYXMuaHMtaGVpbGJyb25uLmRlL29wZW5pZGNvbm5lY3QucGhwIiwicnQiOiJjb2RlIiwic3QiOiIwZDc4ZTgyYTUyZDI3MTVjZTQ2NzM2ZjBjMzExZWRiMSJ9&execution=4234d423-fe45-4bfb-8f07-788a49eaa963&kc_locale=en">English</a>
+                                    </li>
+                                    <li class="" role="none">
+                                        <a role="menuitem" id="language-2" class="pf-c-dropdown__menu-item" href="/realms/hhn/login-actions/authenticate?client_id=hhn_common_ilias&tab_id=bWOn0_C3vSw&client_data=eyJydSI6Imh0dHBzOi8vaWxpYXMuaHMtaGVpbGJyb25uLmRlL29wZW5pZGNvbm5lY3QucGhwIiwicnQiOiJjb2RlIiwic3QiOiIwZDc4ZTgyYTUyZDI3MTVjZTQ2NzM2ZjBjMzExZWRiMSJ9&execution=4234d423-fe45-4bfb-8f07-788a49eaa963&kc_locale=de">German (Deutsch)</a>
+                                    </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <h1 id="kc-page-title">        Login with HHN account
+
+</h1>
+      </header>
+      <div id="kc-content">
+        <div id="kc-content-wrapper">
+
+
+        <div id="kc-form">
+          <div id="kc-form-wrapper">
+                <form id="kc-form-login" onsubmit="login.disabled = true; return true;" action="https://login.hs-heilbronn.de/realms/hhn/login-actions/authenticate?session_code=N5tZLLwgii4kt3KAyUcC4ElBmNkSBy_jYyrr6da7pXk&execution=4234d423-fe45-4bfb-8f07-788a49eaa963&client_id=hhn_common_ilias&tab_id=bWOn0_C3vSw&client_data=eyJydSI6Imh0dHBzOi8vaWxpYXMuaHMtaGVpbGJyb25uLmRlL29wZW5pZGNvbm5lY3QucGhwIiwicnQiOiJjb2RlIiwic3QiOiIwZDc4ZTgyYTUyZDI3MTVjZTQ2NzM2ZjBjMzExZWRiMSJ9" method="post">
+                        <div class="form-group">
+                            <label for="username" class="pf-c-form__label pf-c-form__label-text">Username or email</label>
+
+                            <input tabindex="2" id="username" class="pf-c-form-control" name="username" value="" type="text" autofocus="" autocomplete="username" aria-invalid="" dir="ltr">
+
+
+                        </div>
+
+                    <div class="form-group">
+                        <label for="password" class="pf-c-form__label pf-c-form__label-text">Password</label>
+
+                        <div class="pf-c-input-group" dir="ltr">
+                            <input tabindex="3" id="password" class="pf-c-form-control" name="password" type="password" autocomplete="current-password" aria-invalid="">
+                            <button class="pf-c-button pf-m-control" type="button" aria-label="Show password" aria-controls="password" data-password-toggle="" tabindex="4" data-icon-show="fa fa-eye" data-icon-hide="fa fa-eye-slash" data-label-show="Show password" data-label-hide="Hide password">
+                                <i class="fa fa-eye" aria-hidden="true"></i>
+                            </button>
+                        </div>
+
+
+                    </div>
+
+                    <div class="form-group login-pf-settings">
+                        <div id="kc-form-options">
+                            </div>
+                            <div class="">
+                            </div>
+
+                      </div>
+
+                      <div id="kc-form-buttons" class="form-group">
+                          <input type="hidden" id="id-hidden-input" name="credentialId">
+                          <input tabindex="7" class="pf-c-button pf-m-primary pf-m-block btn-lg" name="login" id="kc-login" type="submit" value="Sign In">
+                      </div>
+                </form>
+            </div>
+        </div>
+        <script type="module" src="js/passwordVisibility.js"></script>
+
+
+
+
+
+        </div>
+      </div>
+
+<div id="hhn-footer">
+    <span><a target="_blank" rel="noopener noreferrer" href="https://www.hs-heilbronn.de/de/ansprechpersonen-rechenzentrum-348b0edcbfdfc323">Support</a> | <a target="_blank" rel="noopener noreferrer" href="https://www.hs-heilbronn.de/de/impressum">Imprint</a> | <a target="_blank" rel="noopener noreferrer" href="https://www.hs-heilbronn.de/de/datenschutz">Privacy Policy</a></span>
+<div>
+    </div>
+  </div>
+
+
+</div></div></body></html>
