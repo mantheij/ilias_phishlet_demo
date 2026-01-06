@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Warum MFA unverzichtbar ist</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: #111827;
+      --muted: #94a3b8;
+      --accent: #22d3ee;
+      --accent-2: #f97316;
+      --text: #e2e8f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at 20% 20%, rgba(34,211,238,0.08), transparent 30%),
+                  radial-gradient(circle at 80% 30%, rgba(249,115,22,0.08), transparent 32%),
+                  radial-gradient(circle at 50% 80%, rgba(56,189,248,0.08), transparent 28%),
+                  var(--bg);
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 18px;
+    }
+    .layout {
+      width: min(1100px, 96vw);
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .hero {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, rgba(34,211,238,0.12), rgba(249,115,22,0.12));
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 18px 48px rgba(0,0,0,0.35);
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+    }
+    p {
+      margin: 0 0 14px;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+    .tagline { color: rgba(226,232,240,0.9); font-weight: 600; }
+    .grid-card {
+      background: var(--panel);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+    }
+    .grid-card h2 {
+      margin: 0 0 10px;
+      font-size: 1.1rem;
+      color: #e5e7eb;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(34,211,238,0.16);
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.92rem;
+      margin-bottom: 10px;
+    }
+    ul { padding-left: 18px; margin: 0 0 10px; color: var(--muted); }
+    li { margin: 6px 0; }
+    .cta {
+      margin-top: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 16px;
+      border-radius: 10px;
+      background: var(--accent);
+      color: #0f172a;
+      font-weight: 800;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 10px 26px rgba(34,211,238,0.35);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      text-decoration: none;
+    }
+    .cta:hover { transform: translateY(-1px); }
+    .cta:active { transform: translateY(0); }
+    .note { color: rgba(226,232,240,0.8); margin-top: 6px; font-size: 0.95rem; }
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <div class="hero">
+      <div class="pill">🔐 MFA rettet Konten</div>
+      <h1>Ohne MFA genügen Angreifern oft wenige Sekunden.</h1>
+      <p class="tagline">Mehr-Faktor-Authentifizierung stoppt die meisten Account-Übernahmen, selbst wenn Passwörter geleakt sind.</p>
+      <p>Angriffe werden automatisiert, schnell und gezielt: Gestohlene Passwörter stammen aus Datenlecks, Phishing-Seiten oder Brute-Force-Listen. Ohne zweiten Faktor bleibt Ihr Konto nur durch ein einziges Geheimnis geschützt. Sobald dieses bekannt ist, sind E-Mail, Cloud-Daten oder VPN-Zugang offen.</p>
+      <a class="cta" href="https://login.hs-heilbronn.de">MFA aktivieren / Login testen →</a>
+      <div class="note">Hier können Sie Passkeys in ILIAS einrichten, um Ihre Kontosicherheit zu erhöhen und gleichzeitig die Anmeldung zu erleichtern.</div>
+    </div>
+
+    <div class="grid-card">
+      <div class="pill">🚨 Häufige Risiken</div>
+      <h2>Was ohne MFA schiefgeht</h2>
+      <ul>
+        <li>Passwort aus altem Leak wiederverwendet → sofortige Kontoübernahme.</li>
+        <li>Phishing-Link geklickt → Angreifer loggt sich sofort ein.</li>
+        <li>Keylogger auf Privat-PC → Anmeldeinfos wandern direkt ins Darknet.</li>
+        <li>Erratenes Standardpasswort → laterale Bewegung im Firmennetz.</li>
+      </ul>
+    </div>
+
+    <div class="grid-card">
+      <div class="pill">🛡️ Wie MFA schützt</div>
+      <h2>Zweiter Faktor, zweites Schloss</h2>
+      <ul>
+        <li>Ein gestohlenes Passwort reicht nicht – Login wird blockiert.</li>
+        <li>Push/OTP/Hardware-Token bestätigen, dass Sie wirklich Sie sind.</li>
+        <li>Ungewohnte Anmeldeversuche fallen sofort auf.</li>
+        <li>Risiko von Kontoübernahmen sinkt drastisch (laut Studien um >90%).</li>
+      </ul>
+    </div>
+
+    <div class="grid-card">
+      <div class="pill">✅ Sofort umsetzen</div>
+      <h2>Ihre nächsten Schritte</h2>
+      <ul>
+        <li>MFA im Konto aktivieren (Authenticator-App oder Sicherheitsschlüssel bevorzugt).</li>
+        <li>Backup-Codes sicher ablegen (kein E-Mail-Postfach).</li>
+        <li>Passwortmanager nutzen und lange, einzigartige Passwörter wählen.</li>
+        <li>Verdächtige Login-Prompts niemals blind bestätigen.</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

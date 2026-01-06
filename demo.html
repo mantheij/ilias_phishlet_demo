@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phishing-Test Hinweis</title>
+  <style>
+    :root {
+      --bg: #0b1a2a;
+      --panel: #132b44;
+      --accent: #ff6b6b;
+      --text: #e9eff7;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 20% 20%, rgba(255,107,107,0.08), transparent 30%),
+                  radial-gradient(circle at 80% 30%, rgba(255,214,102,0.08), transparent 32%),
+                  radial-gradient(circle at 50% 80%, rgba(86,204,242,0.08), transparent 28%),
+                  var(--bg);
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      color: var(--text);
+    }
+    .card {
+      width: min(480px, 94vw);
+      background: var(--panel);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.35);
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,107,107,0.1), rgba(255,214,102,0.08));
+      pointer-events: none;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,107,107,0.15);
+      border: 1px solid rgba(255,107,107,0.35);
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 0.4px;
+    }
+    h1 {
+      margin: 18px 0 12px;
+      font-size: 1.6rem;
+      line-height: 1.3;
+    }
+    p {
+      margin: 0 0 14px;
+      line-height: 1.6;
+      color: rgba(233,239,247,0.9);
+    }
+    .actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      border: none;
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #0b1a2a;
+      box-shadow: 0 8px 24px rgba(255,107,107,0.35);
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+    .footer-note {
+      margin-top: 18px;
+      font-size: 0.9rem;
+      color: rgba(233,239,247,0.75);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card" role="alert" aria-live="assertive">
+    <div class="badge">⚠️ Phishing-Test</div>
+    <h1>Dies war ein Phishing-Test.</h1>
+    <p>Keine Sorge, dies war nur eine Simulation. Bitte beachten Sie die Hinweise zur IT-Sicherheit und melden Sie verdächtige E-Mails sofort.</p>
+    <p>Öffnen Sie keine unbekannten Anhänge, klicken Sie nicht auf ungeprüfte Links und verifizieren Sie Absender, bevor Sie sensible Daten teilen.</p>
+    <div class="actions">
+      <button class="btn btn-primary" onclick="window.location.href='threats.html'">Bedrohungen</button>
+    </div>
+    <div class="footer-note">Drücken Sie auf "Bedrohungen", um mehr über Phishing-Bedrohungen und Lösungen dafür zu erfahren.</div>
+  </div>
+</body>
+</html>
