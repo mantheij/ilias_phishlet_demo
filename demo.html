@@ -1,21 +1,96 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" id="html">
 <head>
+  <base href="/">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Phishing-Test Hinweis</title>
   <link rel="stylesheet" href="css/demo_styles.css">
+  <style>
+    .language-switcher {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+    .language-switcher button {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      margin-left: 5px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .language-switcher button:hover {
+      background: #0056b3;
+    }
+    .language-switcher button.active {
+      background: #28a745;
+    }
+  </style>
 </head>
 <body>
-  <div class="card" role="alert" aria-live="assertive">
-    <div class="badge">⚠️ Phishing-Test</div>
-    <h1>Dies war ein Phishing-Test.</h1>
-    <p>Keine Sorge, dies war nur eine Simulation. Bitte beachten Sie die Hinweise zur IT-Sicherheit und melden Sie verdächtige E-Mails sofort.</p>
-    <p>Öffnen Sie keine unbekannten Anhänge, klicken Sie nicht auf ungeprüfte Links und verifizieren Sie Absender, bevor Sie sensible Daten teilen.</p>
-    <div class="actions">
-      <button class="btn btn-primary" onclick="window.location.href='threats.html'">Bedrohungen</button>
-    </div>
-    <div class="footer-note">Drücken Sie auf "Bedrohungen", um mehr über Phishing-Bedrohungen und Lösungen dafür zu erfahren.</div>
+  <div class="language-switcher">
+    <button id="lang-de" class="active" onclick="setLanguage('de')">Deutsch</button>
+    <button id="lang-en" onclick="setLanguage('en')">English</button>
   </div>
+  
+  <div class="card" role="alert" aria-live="assertive">
+    <div class="badge">⚠️ <span data-i18n="warning">Phishing-Test</span></div>
+    <h1 data-i18n="title">Dies war ein Phishing-Test.</h1>
+    <p data-i18n="desc1">Keine Sorge, dies war nur eine Simulation. Bitte beachten Sie die Hinweise zur IT-Sicherheit und melden Sie verdächtige E-Mails sofort.</p>
+    <p data-i18n="desc2">Öffnen Sie keine unbekannten Anhänge, klicken Sie nicht auf ungeprüfte Links und verifizieren Sie Absender, bevor Sie sensible Daten teilen.</p>
+    <div class="actions">
+      <button class="btn btn-primary" onclick="window.location.href='mfa-info.php'"><span data-i18n="btn">Bedrohungen</span></button>
+    </div>
+    <div class="footer-note" data-i18n="footer">Drücken Sie auf "Bedrohungen", um mehr über Phishing-Bedrohungen und Lösungen dafür zu erfahren.</div>
+  </div>
+
+  <script>
+    const translations = {
+      de: {
+        warning: 'Phishing-Test',
+        title: 'Dies war ein Phishing-Test.',
+        desc1: 'Keine Sorge, dies war nur eine Simulation. Bitte beachten Sie die Hinweise zur IT-Sicherheit und melden Sie verdächtige E-Mails sofort.',
+        desc2: 'Öffnen Sie keine unbekannten Anhänge, klicken Sie nicht auf ungeprüfte Links und verifizieren Sie Absender, bevor Sie sensible Daten teilen.',
+        btn: 'Bedrohungen',
+        footer: 'Drücken Sie auf "Bedrohungen", um mehr über Phishing-Bedrohungen und Lösungen dafür zu erfahren.'
+      },
+      en: {
+        warning: 'Phishing Test',
+        title: 'This was a phishing test.',
+        desc1: 'Don\'t worry, this was only a simulation. Please follow the IT security guidelines and report suspicious emails immediately.',
+        desc2: 'Do not open unknown attachments, do not click on unverified links and verify the sender before sharing sensitive data.',
+        btn: 'Threats',
+        footer: 'Click on "Threats" to learn more about phishing threats and solutions.'
+      }
+    };
+
+    function setLanguage(lang) {
+      localStorage.setItem('language', lang);
+      document.documentElement.lang = lang;
+      document.getElementById('html').setAttribute('lang', lang);
+      
+      // Update all elements with data-i18n attribute
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+      
+      // Update language buttons
+      document.getElementById('lang-de').classList.toggle('active', lang === 'de');
+      document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+    }
+
+    // Initialize language on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('language') || 'de';
+      setLanguage(savedLang);
+    });
+  </script>
 </body>
 </html>

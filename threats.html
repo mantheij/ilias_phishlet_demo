@@ -1,54 +1,162 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" id="html">
 <head>
+  <base href="/">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Warum MFA unverzichtbar ist</title>
   <link rel="stylesheet" href="css/demo_styles.css">
+  <style>
+    .language-switcher {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+    .language-switcher button {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      margin-left: 5px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .language-switcher button:hover {
+      background: #0056b3;
+    }
+    .language-switcher button.active {
+      background: #28a745;
+    }
+  </style>
 </head>
 <body>
+  <div class="language-switcher">
+    <button id="lang-de" class="active" onclick="setLanguage('de')">Deutsch</button>
+    <button id="lang-en" onclick="setLanguage('en')">English</button>
+  </div>
+
   <div class="layout">
     <div class="hero">
-      <div class="pill">🔐 MFA rettet Konten</div>
-      <h1>Ohne MFA genügen Angreifern oft wenige Sekunden.</h1>
-      <p class="tagline">Mehr-Faktor-Authentifizierung stoppt die meisten Account-Übernahmen, selbst wenn Passwörter geleakt sind.</p>
-      <p>Angriffe werden automatisiert, schnell und gezielt: Gestohlene Passwörter stammen aus Datenlecks, Phishing-Seiten oder Brute-Force-Listen. Ohne zweiten Faktor bleibt Ihr Konto nur durch ein einziges Geheimnis geschützt. Sobald dieses bekannt ist, sind E-Mail, Cloud-Daten oder VPN-Zugang offen.</p>
-      <a class="cta" href="https://login.hs-heilbronn.de">MFA aktivieren / Login testen →</a>
-      <div class="note">Hier können Sie Passkeys in ILIAS einrichten, um Ihre Kontosicherheit zu erhöhen und gleichzeitig die Anmeldung zu erleichtern.</div>
+      <div class="pill"><span data-i18n="pill1">🔐 MFA rettet Konten</span></div>
+      <h1 data-i18n="title">Ohne MFA genügen Angreifern oft wenige Sekunden.</h1>
+      <p class="tagline" data-i18n="subtitle">Mehr-Faktor-Authentifizierung stoppt die meisten Account-Übernahmen, selbst wenn Passwörter geleakt sind.</p>
+      <p data-i18n="intro">Angriffe werden automatisiert, schnell und gezielt: Gestohlene Passwörter stammen aus Datenlecks, Phishing-Seiten oder Brute-Force-Listen. Ohne zweiten Faktor bleibt Ihr Konto nur durch ein einziges Geheimnis geschützt. Sobald dieses bekannt ist, sind E-Mail, Cloud-Daten oder VPN-Zugang offen.</p>
+      <a class="cta" href="https://login.hs-heilbronn.de"><span data-i18n="cta">MFA aktivieren / Login testen</span> →</a>
+      <div class="note" data-i18n="note">Hier können Sie Passkeys in ILIAS einrichten, um Ihre Kontosicherheit zu erhöhen und gleichzeitig die Anmeldung zu erleichtern.</div>
     </div>
 
     <div class="grid-card">
-      <div class="pill">🚨 Häufige Risiken</div>
-      <h2>Was ohne MFA schiefgeht</h2>
+      <div class="pill"><span data-i18n="pill2">🚨 Häufige Risiken</span></div>
+      <h2 data-i18n="h2-1">Was ohne MFA schiefgeht</h2>
       <ul>
-        <li>Passwort aus altem Leak wiederverwendet → sofortige Kontoübernahme.</li>
-        <li>Phishing-Link geklickt → Angreifer loggt sich sofort ein.</li>
-        <li>Keylogger auf Privat-PC → Anmeldeinfos wandern direkt ins Darknet.</li>
-        <li>Erratenes Standardpasswort → laterale Bewegung im Firmennetz.</li>
+        <li data-i18n="risk1">Passwort aus altem Leak wiederverwendet → sofortige Kontoübernahme.</li>
+        <li data-i18n="risk2">Phishing-Link geklickt → Angreifer loggt sich sofort ein.</li>
+        <li data-i18n="risk3">Keylogger auf Privat-PC → Anmeldeinfos wandern direkt ins Darknet.</li>
+        <li data-i18n="risk4">Erratenes Standardpasswort → laterale Bewegung im Firmennetz.</li>
       </ul>
     </div>
 
     <div class="grid-card">
-      <div class="pill">🛡️ Wie MFA schützt</div>
-      <h2>Zweiter Faktor, zweites Schloss</h2>
+      <div class="pill"><span data-i18n="pill3">🛡️ Wie MFA schützt</span></div>
+      <h2 data-i18n="h2-2">Zweiter Faktor, zweites Schloss</h2>
       <ul>
-        <li>Ein gestohlenes Passwort reicht nicht – Login wird blockiert.</li>
-        <li>Push/OTP/Hardware-Token bestätigen, dass Sie wirklich Sie sind.</li>
-        <li>Ungewohnte Anmeldeversuche fallen sofort auf.</li>
-        <li>Risiko von Kontoübernahmen sinkt drastisch (laut Studien um >90%).</li>
+        <li data-i18n="protection1">Ein gestohlenes Passwort reicht nicht – Login wird blockiert.</li>
+        <li data-i18n="protection2">Push/OTP/Hardware-Token bestätigen, dass Sie wirklich Sie sind.</li>
+        <li data-i18n="protection3">Ungewohnte Anmeldeversuche fallen sofort auf.</li>
+        <li data-i18n="protection4">Risiko von Kontoübernahmen sinkt drastisch (laut Studien um >90%).</li>
       </ul>
     </div>
 
     <div class="grid-card">
-      <div class="pill">✅ Sofort umsetzen</div>
-      <h2>Ihre nächsten Schritte</h2>
+      <div class="pill"><span data-i18n="pill4">✅ Sofort umsetzen</span></div>
+      <h2 data-i18n="h2-3">Ihre nächsten Schritte</h2>
       <ul>
-        <li>MFA im Konto aktivieren (Authenticator-App oder Sicherheitsschlüssel bevorzugt).</li>
-        <li>Backup-Codes sicher ablegen (kein E-Mail-Postfach).</li>
-        <li>Passwortmanager nutzen und lange, einzigartige Passwörter wählen.</li>
-        <li>Verdächtige Login-Prompts niemals blind bestätigen.</li>
+        <li data-i18n="step1">MFA im Konto aktivieren (Authenticator-App oder Sicherheitsschlüssel bevorzugt).</li>
+        <li data-i18n="step2">Backup-Codes sicher ablegen (kein E-Mail-Postfach).</li>
+        <li data-i18n="step3">Passwortmanager nutzen und lange, einzigartige Passwörter wählen.</li>
+        <li data-i18n="step4">Verdächtige Login-Prompts niemals blind bestätigen.</li>
       </ul>
     </div>
   </div>
+
+  <script>
+    const translations = {
+      de: {
+        pill1: '🔐 MFA rettet Konten',
+        title: 'Ohne MFA genügen Angreifern oft wenige Sekunden.',
+        subtitle: 'Mehr-Faktor-Authentifizierung stoppt die meisten Account-Übernahmen, selbst wenn Passwörter geleakt sind.',
+        intro: 'Angriffe werden automatisiert, schnell und gezielt: Gestohlene Passwörter stammen aus Datenlecks, Phishing-Seiten oder Brute-Force-Listen. Ohne zweiten Faktor bleibt Ihr Konto nur durch ein einziges Geheimnis geschützt. Sobald dieses bekannt ist, sind E-Mail, Cloud-Daten oder VPN-Zugang offen.',
+        cta: 'MFA aktivieren / Login testen',
+        note: 'Hier können Sie Passkeys in ILIAS einrichten, um Ihre Kontosicherheit zu erhöhen und gleichzeitig die Anmeldung zu erleichtern.',
+        pill2: '🚨 Häufige Risiken',
+        h2_1: 'Was ohne MFA schiefgeht',
+        risk1: 'Passwort aus altem Leak wiederverwendet → sofortige Kontoübernahme.',
+        risk2: 'Phishing-Link geklickt → Angreifer loggt sich sofort ein.',
+        risk3: 'Keylogger auf Privat-PC → Anmeldeinfos wandern direkt ins Darknet.',
+        risk4: 'Erratenes Standardpasswort → laterale Bewegung im Firmennetz.',
+        pill3: '🛡️ Wie MFA schützt',
+        h2_2: 'Zweiter Faktor, zweites Schloss',
+        protection1: 'Ein gestohlenes Passwort reicht nicht – Login wird blockiert.',
+        protection2: 'Push/OTP/Hardware-Token bestätigen, dass Sie wirklich Sie sind.',
+        protection3: 'Ungewohnte Anmeldeversuche fallen sofort auf.',
+        protection4: 'Risiko von Kontoübernahmen sinkt drastisch (laut Studien um >90%).',
+        pill4: '✅ Sofort umsetzen',
+        h2_3: 'Ihre nächsten Schritte',
+        step1: 'MFA im Konto aktivieren (Authenticator-App oder Sicherheitsschlüssel bevorzugt).',
+        step2: 'Backup-Codes sicher ablegen (kein E-Mail-Postfach).',
+        step3: 'Passwortmanager nutzen und lange, einzigartige Passwörter wählen.',
+        step4: 'Verdächtige Login-Prompts niemals blind bestätigen.'
+      },
+      en: {
+        pill1: '🔐 MFA saves accounts',
+        title: 'Without MFA, attackers often need only seconds.',
+        subtitle: 'Multi-factor authentication stops most account takeovers, even if passwords are leaked.',
+        intro: 'Attacks are automated, fast and targeted: Stolen passwords come from data breaches, phishing pages or brute-force lists. Without a second factor, your account is protected only by a single secret. Once that is known, email, cloud data or VPN access are open.',
+        cta: 'Enable MFA / Test login',
+        note: 'Here you can set up Passkeys in ILIAS to increase your account security while simplifying login.',
+        pill2: '🚨 Common risks',
+        h2_1: 'What goes wrong without MFA',
+        risk1: 'Password from old leak reused → immediate account takeover.',
+        risk2: 'Phishing link clicked → attacker logs in immediately.',
+        risk3: 'Keylogger on private PC → login info goes straight to the dark web.',
+        risk4: 'Guessed default password → lateral movement in the corporate network.',
+        pill3: '🛡️ How MFA protects',
+        h2_2: 'Second factor, second lock',
+        protection1: 'A stolen password is not enough – login is blocked.',
+        protection2: 'Push/OTP/Hardware token confirms that you are really you.',
+        protection3: 'Unusual login attempts are immediately noticed.',
+        protection4: 'Risk of account takeover drops dramatically (according to studies by >90%).',
+        pill4: '✅ Implement immediately',
+        h2_3: 'Your next steps',
+        step1: 'Enable MFA on your account (authenticator app or security key preferred).',
+        step2: 'Store backup codes securely (not in email inbox).',
+        step3: 'Use a password manager and choose long, unique passwords.',
+        step4: 'Never blindly confirm suspicious login prompts.'
+      }
+    };
+
+    function setLanguage(lang) {
+      localStorage.setItem('language', lang);
+      document.documentElement.lang = lang;
+      document.getElementById('html').setAttribute('lang', lang);
+      
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+      
+      document.getElementById('lang-de').classList.toggle('active', lang === 'de');
+      document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('language') || 'de';
+      setLanguage(savedLang);
+    });
+  </script>
 </body>
 </html>

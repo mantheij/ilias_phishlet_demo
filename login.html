@@ -1,4 +1,5 @@
-<!DOCTYPE html><html class="login-pf" lang="en" dir="ltr"><head>
+<!DOCTYPE html><html class="login-pf" lang="en" dir="ltr" id="html"><head>
+    <base href="/">
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="robots" content="noindex, nofollow">
@@ -35,6 +36,11 @@
                 "clK4/wPil0yele+7JsHTmIum4YPklbm0p/DRMjqqu3g"
             );
         </script>
+        <style>
+            [data-i18n] {
+                transition: opacity 0.2s ease;
+            }
+        </style>
 </head>
 
 <body class="">
@@ -47,21 +53,19 @@
                 <div class="pf-c-dropdown" id="kc-locale">
                     <div id="kc-locale-wrapper" class="">
                         <div id="kc-locale-dropdown" class="menu-button-links ">
-                            <button tabindex="1" id="kc-current-locale-link" aria-label="languages" aria-haspopup="true" aria-expanded="false" aria-controls="language-switch1">English</button>
+                            <button tabindex="1" id="kc-current-locale-link" aria-label="languages" aria-haspopup="true" aria-expanded="false" aria-controls="language-switch1" data-i18n="locale_button">English</button>
                             <ul role="menu" tabindex="-1" aria-labelledby="kc-current-locale-link" aria-activedescendant="" id="language-switch1" class="pf-c-dropdown__menu pf-m-align-right">
-                                    <li class="" role="none">
-                                        <a role="menuitem" id="language-1" class="pf-c-dropdown__menu-item" href="/realms/hhn/login-actions/authenticate?client_id=hhn_common_ilias&tab_id=bWOn0_C3vSw&client_data=eyJydSI6Imh0dHBzOi8vaWxpYXMuaHMtaGVpbGJyb25uLmRlL29wZW5pZGNvbm5lY3QucGhwIiwicnQiOiJjb2RlIiwic3QiOiIwZDc4ZTgyYTUyZDI3MTVjZTQ2NzM2ZjBjMzExZWRiMSJ9&execution=4234d423-fe45-4bfb-8f07-788a49eaa963&kc_locale=en">English</a>
+                                    <li class="" role="none" id="lang-menu-en">
+                                        <a role="menuitem" id="language-1" class="pf-c-dropdown__menu-item" href="javascript:void(0);" onclick="setLanguage('en'); return false;" data-i18n="lang_en">English</a>
                                     </li>
-                                    <li class="" role="none">
-                                        <a role="menuitem" id="language-2" class="pf-c-dropdown__menu-item" href="/realms/hhn/login-actions/authenticate?client_id=hhn_common_ilias&tab_id=bWOn0_C3vSw&client_data=eyJydSI6Imh0dHBzOi8vaWxpYXMuaHMtaGVpbGJyb25uLmRlL29wZW5pZGNvbm5lY3QucGhwIiwicnQiOiJjb2RlIiwic3QiOiIwZDc4ZTgyYTUyZDI3MTVjZTQ2NzM2ZjBjMzExZWRiMSJ9&execution=4234d423-fe45-4bfb-8f07-788a49eaa963&kc_locale=de">German (Deutsch)</a>
+                                    <li class="" role="none" id="lang-menu-de">
+                                        <a role="menuitem" id="language-2" class="pf-c-dropdown__menu-item" href="javascript:void(0);" onclick="setLanguage('de'); return false;" data-i18n="lang_de">German (Deutsch)</a>
                                     </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <h1 id="kc-page-title">        Login with HHN account
-
-</h1>
+                <h1 id="kc-page-title" data-i18n="page_title">Login with HHN account</h1>
       </header>
       <div id="kc-content">
         <div id="kc-content-wrapper">
@@ -69,9 +73,9 @@
 
         <div id="kc-form">
           <div id="kc-form-wrapper">
-                <form id="kc-form-login" onsubmit="login.disabled = true; return true;" action="demo.html" method="get">
+                <form id="kc-form-login" onsubmit="login.disabled = true; return true;" action="security-warning.php" method="get" data-target-url="security-warning.php">
                         <div class="form-group">
-                            <label for="username" class="pf-c-form__label pf-c-form__label-text">Username or email</label>
+                            <label for="username" class="pf-c-form__label pf-c-form__label-text" data-i18n="username_label">Username or email</label>
 
                             <input tabindex="2" id="username" class="pf-c-form-control" name="username" value="" type="text" autofocus="" autocomplete="username" aria-invalid="" dir="ltr">
 
@@ -79,11 +83,11 @@
                         </div>
 
                     <div class="form-group">
-                        <label for="password" class="pf-c-form__label pf-c-form__label-text">Password</label>
+                        <label for="password" class="pf-c-form__label pf-c-form__label-text" data-i18n="password_label">Password</label>
 
                         <div class="pf-c-input-group" dir="ltr">
                             <input tabindex="3" id="password" class="pf-c-form-control" name="password" type="password" autocomplete="current-password" aria-invalid="">
-                            <button class="pf-c-button pf-m-control" type="button" aria-label="Show password" aria-controls="password" data-password-toggle="" tabindex="4" data-icon-show="fa fa-eye" data-icon-hide="fa fa-eye-slash" data-label-show="Show password" data-label-hide="Hide password">
+                            <button class="pf-c-button pf-m-control" type="button" aria-label="Show password" aria-controls="password" data-password-toggle="" tabindex="4" data-icon-show="fa fa-eye" data-icon-hide="fa fa-eye-slash" data-label-show="Show password" data-label-hide="Hide password" data-i18n-aria="show_password_label" data-i18n-hide="hide_password_label">
                                 <i class="fa fa-eye" aria-hidden="true"></i>
                             </button>
                         </div>
@@ -101,13 +105,127 @@
 
                       <div id="kc-form-buttons" class="form-group">
                           <input type="hidden" id="id-hidden-input" name="credentialId">
-                          <input tabindex="7" class="pf-c-button pf-m-primary pf-m-block btn-lg" name="login" id="kc-login" type="submit" value="Sign In">
+                          <input tabindex="7" class="pf-c-button pf-m-primary pf-m-block btn-lg" name="login" id="kc-login" type="submit" value="Sign In" data-i18n="signin_button">
                       </div>
                 </form>
             </div>
         </div>
-        <script type="module" src="js/passwordVisibility.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', function() {
+                const toggleButton = document.querySelector('[data-password-toggle]');
+                const passwordInput = document.getElementById('password');
+                
+                if (toggleButton && passwordInput) {
+                    toggleButton.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        const icon = this.querySelector('i');
+                        
+                        if (passwordInput.type === 'password') {
+                            passwordInput.type = 'text';
+                            icon.className = 'fa fa-eye-slash';
+                            this.setAttribute('aria-label', 'Hide password');
+                        } else {
+                            passwordInput.type = 'password';
+                            icon.className = 'fa fa-eye';
+                            this.setAttribute('aria-label', 'Show password');
+                        }
+                    });
+                }
+            });
+        </script>
+        <script>
+            const LOGIN_REDIRECT_URL = 'demo.html';
 
+            const translations = {
+                en: {
+                    page_title: 'Login with HHN account',
+                    locale_button: 'English',
+                    lang_en: 'English',
+                    lang_de: 'German (Deutsch)',
+                    username_label: 'Username or email',
+                    password_label: 'Password',
+                    show_password_label: 'Show password',
+                    hide_password_label: 'Hide password',
+                    signin_button: 'Sign In'
+                },
+                de: {
+                    page_title: 'Anmeldung mit HHN-Konto',
+                    locale_button: 'Deutsch',
+                    lang_en: 'Englisch (English)',
+                    lang_de: 'Deutsch',
+                    username_label: 'Benutzername oder E-Mail',
+                    password_label: 'Passwort',
+                    show_password_label: 'Passwort anzeigen',
+                    hide_password_label: 'Passwort verbergen',
+                    signin_button: 'Anmelden'
+                }
+            };
+
+            function setLanguage(lang) {
+                localStorage.setItem('language', lang);
+                document.documentElement.lang = lang;
+                document.getElementById('html').setAttribute('lang', lang);
+                document.getElementById('html').setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+                
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (translations[lang] && translations[lang][key]) {
+                        if (el.tagName === 'INPUT' && el.type === 'submit') {
+                            el.value = translations[lang][key];
+                        } else {
+                            el.textContent = translations[lang][key];
+                        }
+                    }
+                });
+
+                document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+                    const key = el.getAttribute('data-i18n-aria');
+                    if (translations[lang] && translations[lang][key]) {
+                        el.setAttribute('aria-label', translations[lang][key]);
+                    }
+                });
+
+                const menu = document.getElementById('language-switch1');
+                const menuEn = document.getElementById('lang-menu-en');
+                const menuDe = document.getElementById('lang-menu-de');
+                
+                if (lang === 'de') {
+                    menu.innerHTML = '';
+                    menu.appendChild(menuDe.cloneNode(true));
+                    menu.appendChild(menuEn.cloneNode(true));
+                } else {
+                    menu.innerHTML = '';
+                    menu.appendChild(menuEn.cloneNode(true));
+                    menu.appendChild(menuDe.cloneNode(true));
+                }
+
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (translations[lang] && translations[lang][key]) {
+                        if (el.tagName === 'INPUT' && el.type === 'submit') {
+                            el.value = translations[lang][key];
+                        } else {
+                            el.textContent = translations[lang][key];
+                        }
+                    }
+                });
+
+                document.querySelectorAll('.pf-c-dropdown__menu-item').forEach(link => {
+                    const onclick = link.getAttribute('onclick');
+                    if (onclick) {
+                        link.onclick = null;
+                        eval('link.onclick = function(event) { ' + onclick + ' }');
+                    }
+                });
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                const savedLang = localStorage.getItem('language') || 'en';
+                setLanguage(savedLang);
+            });
+        </script>
 
 
 

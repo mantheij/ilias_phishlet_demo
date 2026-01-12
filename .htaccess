@@ -1,0 +1,25 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    
+    # Don't rewrite actual files and directories (except for our fake URLs)
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    
+    # Fake URLs for each page
+    # Main page (index.html)
+    RewriteRule ^ilias\.php$ /index.html [L,QSA]
+    RewriteRule ^$ /index.html [L]
+    
+    # Login page - Full OIDC URL
+    RewriteRule ^realms/hhn/protocol/openid-connect/auth$ /login.html [L,QSA]
+    RewriteRule ^login\.php$ /login.html [L,QSA]
+    
+    # Demo/Warning page
+    RewriteRule ^warning\.php$ /demo.html [L,QSA]
+    RewriteRule ^security-warning\.php$ /demo.html [L,QSA]
+    
+    # Threats/MFA page
+    RewriteRule ^mfa-info\.php$ /threats.html [L,QSA]
+    RewriteRule ^security-info\.php$ /threats.html [L,QSA]
+</IfModule>
