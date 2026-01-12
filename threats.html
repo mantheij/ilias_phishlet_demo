@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="de" id="html">
 <head>
-  <base href="/">
+  <script>
+    if (window.location.protocol !== 'file:') {
+      document.write('<base href="/">');
+    }
+  </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Warum MFA unverzichtbar ist</title>
