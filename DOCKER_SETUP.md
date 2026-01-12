@@ -10,8 +10,8 @@ Dieser Docker-Setup erstellt einen lokalen Apache-Webserver mit URL-Rewriting, s
 ## Installation & Start
 
 ### 1. Docker-Image bauen
+Im Projektverzeichnis:
 ```powershell
-cd c:\Users\lol21\Visual Studio Code\ilias_phishlet_demo
 docker build -t ilias-phishlet-demo .
 ```
 
