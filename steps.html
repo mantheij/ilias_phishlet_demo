@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="de" id="html">
+<head>
+  <script>
+    if (window.location.protocol !== 'file:') {
+      document.write('<base href="/">');
+    }
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MFA aktivieren - Schritte für die Umsetzung</title>
+  <link rel="stylesheet" href="css/demo_styles.css">
+  <style>
+    .language-switcher {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+    .language-switcher button {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      margin-left: 5px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .language-switcher button:hover {
+      background: #0056b3;
+    }
+    .language-switcher button.active {
+      background: #28a745;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #007bff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+    .step-card {
+      background: #1b3a5c;
+      color: white;
+      border-left: 4px solid #ffc107;
+      padding: 25px;
+      margin: 25px 0;
+      border-radius: 4px;
+    }
+    .step-card h3 {
+      margin-top: 0;
+      color: #ffc107;
+      font-size: 1.3em;
+    }
+    .step-number {
+      display: inline-block;
+      background: #ffc107;
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      font-weight: bold;
+      margin-right: 10px;
+      font-size: 1.2em;
+    }
+    .checklist {
+      background: #1b3a5c;
+      color: white;
+      border: 2px solid #28a745;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+    }
+    .checklist h4 {
+      margin-top: 0;
+      color: #28a745;
+    }
+    .checklist ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+    .checklist li {
+      margin: 10px 0;
+    }
+    .warning-box {
+      background: #1b3a5c;
+      color: white;
+      border: 2px solid #ffc107;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+    }
+    .warning-box h4 {
+      margin-top: 0;
+      color: #ff6d00;
+    }
+    .timeline {
+      position: relative;
+      padding-left: 30px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: #ffc107;
+    }
+    .step-item {
+      position: relative;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+    }
+    .step-item::before {
+      content: '';
+      position: absolute;
+      left: -36px;
+      top: 5px;
+      width: 12px;
+      height: 12px;
+      background: white;
+      border: 3px solid #ffc107;
+      border-radius: 50%;
+    }
+    .grid-card {
+      background: #1b3a5c;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="language-switcher">
+    <button id="lang-de" class="active" onclick="setLanguage('de')">Deutsch</button>
+    <button id="lang-en" onclick="setLanguage('en')">English</button>
+  </div>
+
+  <div class="layout">
+    <a class="back-link" href="threats.html" data-i18n="back">← Zurück</a>
+
+    <div class="hero">
+      <div class="pill"><span data-i18n="pill">✅ Sofort umsetzen</span></div>
+      <h1 data-i18n="title">Ihre nächsten Schritte</h1>
+      <p class="tagline" data-i18n="subtitle">Mit dieser Anleitung aktivieren Sie MFA in wenigen Minuten und erhöhen die Sicherheit Ihres Kontos dramatisch.</p>
+    </div>
+
+    <div class="step-card">
+      <h3><span class="step-number">1</span><span data-i18n="step1-title">MFA im Konto aktivieren (Authenticator-App oder Sicherheitsschlüssel bevorzugt)</span></h3>
+      <p data-i18n="step1-intro">Der erste Schritt ist, MFA für Ihr Konto zu aktivieren:</p>
+      
+      <div class="timeline">
+        <div class="step-item">
+          <strong data-i18n="step1-a">Gehen Sie in Ihre Kontosicherheitseinstellungen</strong>
+          <p data-i18n="step1-a-desc">Auf den meisten Plattformen finden Sie dies unter „Sicherheit" oder „Datenschutz" in den Kontoeinstellungen. Bei ILIAS ist dies im Benutzerprofil auf der Seite zu finden.</p>
+        </div>
+        <div class="step-item">
+          <strong data-i18n="step1-b">Wählen Sie die MFA-Methode</strong>
+          <p data-i18n="step1-b-desc">
+            <strong data-i18n="empfohlen">Empfohlen:</strong> <span data-i18n="step1-b-opt1">Sicherheitsschlüssel (maximale Sicherheit) oder Passkeys (einfach und sicher)</span><br>
+            <strong data-i18n="gut">Gut:</strong> <span data-i18n="step1-b-opt2">Authenticator-App (z.B. Google Authenticator, Microsoft Authenticator, Authy)</span><br>
+            <strong data-i18n="notwendig">Notwendig:</strong> <span data-i18n="step1-b-opt3">SMS als Fallback, wenn nichts anderes verfügbar ist</span>
+          </p>
+        </div>
+        <div class="step-item">
+          <strong data-i18n="step1-c">Folgen Sie den Anweisungen des Dienstes</strong>
+          <p data-i18n="step1-c-desc">Der Dienst wird Sie durch die Einrichtung führen. Sie werden gebeten, einen Code zu bestätigen, um MFA zu aktivieren. Das ist ganz normal und ein wichtiger Sicherheitsschritt.</p>
+        </div>
+        <div class="step-item">
+          <strong data-i18n="step1-d">Speichern Sie die Backup-Codes</strong>
+          <p data-i18n="step1-d-desc">Fast alle Dienste generieren 10-20 Backup-Codes. Diese können Sie verwenden, wenn Sie Ihr Telefon oder Ihren Sicherheitsschlüssel verlieren. Speichern Sie diese an einem sicheren Ort – nicht in Ihrem E-Mail-Postfach, nicht am Rechner. Ein Safe, ein Tresor oder ein Stück Papier im Schrank sind bessere Optionen.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <h3><span class="step-number">2</span><span data-i18n="step2-title">Backup-Codes sicher ablegen (kein E-Mail-Postfach)</span></h3>
+      <p data-i18n="step2-desc">Die Backup-Codes sind Ihr Notfall-Plan. Wenn Sie Ihr MFA-Gerät verlieren oder es nicht funktioniert, können Sie sich damit noch anmelden. Deshalb müssen sie sicher aufbewahrt werden:</p>
+      
+      <div class="checklist">
+        <h4 data-i18n="step2-secure">✅ Sicher:</h4>
+        <ul>
+          <li data-i18n="step2-secure1">Ausgedruckt in einem Tresor / Safe</li>
+          <li data-i18n="step2-secure2">Handschriftlich notiert und in einen verschlossenen Behälter gelegt</li>
+          <li data-i18n="step2-secure3">In einem verschlüsselten Passwort-Manager (z.B. KeePass, Bitwarden) mit starkem Master-Passwort</li>
+          <li data-i18n="step2-secure4">Physisch bei einer vertrauenswürdigen Person (Familie, Freund)</li>
+        </ul>
+      </div>
+
+      <div class="checklist">
+        <h4 data-i18n="step2-unsecure">❌ Unsicher:</h4>
+        <ul>
+          <li data-i18n="step2-unsecure1">Im E-Mail-Postfach (wenn der Angreifer Ihr Passwort hat, hat er auch die Codes)</li>
+          <li data-i18n="step2-unsecure2">In einem freigegebenen Cloud-Ordner (Google Drive, OneDrive, etc.)</li>
+          <li data-i18n="step2-unsecure3">Auf dem Desktop oder in einer Notizdatei unverschlüsselt</li>
+          <li data-i18n="step2-unsecure4">Fotografiert und in WhatsApp/Signal/Telegram gesendet</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <h3><span class="step-number">3</span><span data-i18n="step3-title">Passwortmanager nutzen und lange, einzigartige Passwörter wählen</span></h3>
+      <p data-i18n="step3-desc">MFA schützt vor gestohlenen Passwörtern, aber eine zusätzliche Schicht von starken Passwörtern ist immer noch wichtig:</p>
+      
+      <div class="timeline">
+        <div class="step-item">
+          <strong data-i18n="step3-a">Nutzen Sie einen Passwort-Manager</strong>
+          <p data-i18n="step3-a-desc">Ein guter Passwort-Manager (z.B. Bitwarden, 1Password, KeePass) speichert Ihre Passwörter sicher und erzeugt automatisch starke, einzigartige Passwörter. Sie müssen sich nur das Master-Passwort merken.</p>
+        </div>
+        <div class="step-item">
+          <strong data-i18n="step3-b">Für wichtige Konten lange Passwörter wählen</strong>
+          <p data-i18n="step3-b-desc">
+            <strong data-i18n="gut">15-20 Zeichen</strong> – minimum für kritische Konten (E-Mail, Cloud, Banking)<br>
+            <strong data-i18n="mindestens">Mindestens 8-12 Zeichen</strong> – für normale Konten<br>
+            <strong data-i18n="mischung">Mischung aus Groß-, Kleinbuchstaben, Zahlen und Sonderzeichen:</strong> <code>aB3$xYz9_mN2!pQ</code>
+          </p>
+        </div>
+        <div class="step-item">
+          <strong data-i18n="step3-c">Wiederverwendung vermeiden</strong>
+          <p data-i18n="step3-c-desc">Verwenden Sie nicht das gleiche Passwort für mehrere Konten. Wenn ein Service gehackt wird, ist nur dieses Konto gefährdet, nicht alle anderen. Ein Passwort-Manager macht dies einfach.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <h3><span class="step-number">4</span><span data-i18n="step4-title">Verdächtige Login-Prompts niemals blind bestätigen</span></h3>
+      <p data-i18n="step4-desc">Jetzt, wo Sie MFA aktiviert haben, erhalten Sie Benachrichtigungen bei Anmeldeversuchen. Das ist Ihr Sicherheitsschutzschild – nutzen Sie es richtig:</p>
+      
+      <div class="checklist">
+        <h4 data-i18n="step4-do">✅ Richtig machen:</h4>
+        <ul>
+          <li data-i18n="step4-do1">Überprüfen Sie immer: Wenn Sie sich gerade nicht anmelden wollten, lehnen Sie ab.</li>
+          <li data-i18n="step4-do2">Achten Sie auf Zeit und Ort: Ein Login um 3 Uhr morgens oder von anderswo auf der Welt ist verdächtig.</li>
+          <li data-i18n="step4-do3">Wenn Sie Ihr Telefon gerade in der Hand haben, aber nie auf „Bestätigen" geklickt haben, ist es eine fremde Person – lehnen Sie ab.</li>
+          <li data-i18n="step4-do4">Im Zweifelsfall immer ablehnen – Ihr eigenes Login versuchen ist sicherer als ein falsches zu akzeptieren.</li>
+        </ul>
+      </div>
+
+      <div class="warning-box">
+        <h4 data-i18n="step4-apathy">⚠️ Vorsicht vor MFA-Fatigue-Attacken</h4>
+        <p data-i18n="step4-apathy-desc">Ein böser Trick ist, jemanden mit vielen Notifications zu bombardieren – und zu hoffen, dass er/sie irgendwann einfach auf „Bestätigen" klickt, ohne nachzudenken (MFA Fatigue). <strong data-i18n="step4-apathy-rule">Regel: Wenn Sie nicht gerade versuchen, sich anzumelden, lehnen Sie ab – immer.</strong></p>
+      </div>
+    </div>
+
+    <div class="grid-card">
+      <div class="pill"><span data-i18n="pill-checklist">✔️ Checkliste</span></div>
+      <h2 data-i18n="checklist-title">Habe ich alles getan?</h2>
+      <p data-i18n="checklist-intro">Gehen Sie diese Checkliste durch, um sicherzustellen, dass Ihre Kontosicherheit gestärkt ist:</p>
+      <ul>
+        <li data-i18n="check1">☐ MFA für mein Hauptkonto aktiviert (E-Mail, ILIAS, Cloud, Banking)</li>
+        <li data-i18n="check2">☐ Die Methode ist Sicherheitsschlüssel, Passkey oder Authenticator-App (nicht SMS)</li>
+        <li data-i18n="check3">☐ Backup-Codes ausgedruckt und sicher gelegt</li>
+        <li data-i18n="check4">☐ Passwortmanager installiert und konfiguriert</li>
+        <li data-i18n="check5">☐ Alle wichtigen Konten mit langen, einzigartigen Passwörtern neu belegt</li>
+        <li data-i18n="check6">☐ MFA-Benachrichtigungen verstanden und getestet</li>
+        <li data-i18n="check7">☐ Kontakte informiert: Diese MFA-Methode funktioniert nur mit meinem Gerät</li>
+      </ul>
+    </div>
+
+    <div class="step-card" style="background: #1b3a5c; color: white; border-left-color: #4caf50;">
+      <h3 data-i18n="congrats-title">🎉 Herzlichen Glückwunsch!</h3>
+      <p data-i18n="congrats-desc">Sie haben die wichtigsten Schritte für Kontosicherheit unternommen. Sie sind jetzt vor den meisten automatisierten Angriffsszenarien geschützt und erhöhen damit auch die Sicherheit von Organisationen und Netzwerken, in denen Sie tätig sind.</p>
+      <p data-i18n="congrats-final">Denken Sie daran: Das ist nicht einmalig – überprüfen Sie gelegentlich Ihre MFA-Einstellungen und aktualisieren Sie Ihre Backup-Codes, wenn Sie neue Geräte bekommen.</p>
+    </div>
+
+    <div class="hero" style="margin-top: 40px; text-align: center;">
+      <a class="cta" href="https://login.hs-heilbronn.de"><span data-i18n="cta">Jetzt zum Login und MFA aktivieren</span> →</a>
+    </div>
+  </div>
+
+  <script>
+    const translations = {
+      de: {
+        back: '← Zurück',
+        pill: '✅ Sofort umsetzen',
+        title: 'Ihre nächsten Schritte',
+        subtitle: 'Mit dieser Anleitung aktivieren Sie MFA in wenigen Minuten und erhöhen die Sicherheit Ihres Kontos dramatisch.',
+        
+        step1_title: 'MFA im Konto aktivieren (Authenticator-App oder Sicherheitsschlüssel bevorzugt)',
+        step1_intro: 'Der erste Schritt ist, MFA für Ihr Konto zu aktivieren:',
+        step1_a: 'Gehen Sie in Ihre Kontosicherheitseinstellungen',
+        step1_a_desc: 'Auf den meisten Plattformen finden Sie dies unter „Sicherheit" oder „Datenschutz" in den Kontoeinstellungen. Bei ILIAS ist dies im Benutzerprofil auf der Seite zu finden.',
+        step1_b: 'Wählen Sie die MFA-Methode',
+        empfohlen: 'Empfohlen:',
+        step1_b_opt1: 'Sicherheitsschlüssel (maximale Sicherheit) oder Passkeys (einfach und sicher)',
+        gut: 'Gut:',
+        step1_b_opt2: 'Authenticator-App (z.B. Google Authenticator, Microsoft Authenticator, Authy)',
+        notwendig: 'Notwendig:',
+        step1_b_opt3: 'SMS als Fallback, wenn nichts anderes verfügbar ist',
+        step1_c: 'Folgen Sie den Anweisungen des Dienstes',
+        step1_c_desc: 'Der Dienst wird Sie durch die Einrichtung führen. Sie werden gebeten, einen Code zu bestätigen, um MFA zu aktivieren. Das ist ganz normal und ein wichtiger Sicherheitsschritt.',
+        step1_d: 'Speichern Sie die Backup-Codes',
+        step1_d_desc: 'Fast alle Dienste generieren 10-20 Backup-Codes. Diese können Sie verwenden, wenn Sie Ihr Telefon oder Ihren Sicherheitsschlüssel verlieren. Speichern Sie diese an einem sicheren Ort – nicht in Ihrem E-Mail-Postfach, nicht am Rechner. Ein Safe, ein Tresor oder ein Stück Papier im Schrank sind bessere Optionen.',
+        
+        step2_title: 'Backup-Codes sicher ablegen (kein E-Mail-Postfach)',
+        step2_desc: 'Die Backup-Codes sind Ihr Notfall-Plan. Wenn Sie Ihr MFA-Gerät verlieren oder es nicht funktioniert, können Sie sich damit noch anmelden. Deshalb müssen sie sicher aufbewahrt werden:',
+        step2_secure: '✅ Sicher:',
+        step2_secure1: 'Ausgedruckt in einem Tresor / Safe',
+        step2_secure2: 'Handschriftlich notiert und in einen verschlossenen Behälter gelegt',
+        step2_secure3: 'In einem verschlüsselten Passwort-Manager (z.B. KeePass, Bitwarden) mit starkem Master-Passwort',
+        step2_secure4: 'Physisch bei einer vertrauenswürdigen Person (Familie, Freund)',
+        step2_unsecure: '❌ Unsicher:',
+        step2_unsecure1: 'Im E-Mail-Postfach (wenn der Angreifer Ihr Passwort hat, hat er auch die Codes)',
+        step2_unsecure2: 'In einem freigegebenen Cloud-Ordner (Google Drive, OneDrive, etc.)',
+        step2_unsecure3: 'Auf dem Desktop oder in einer Notizdatei unverschlüsselt',
+        step2_unsecure4: 'Fotografiert und in WhatsApp/Signal/Telegram gesendet',
+        
+        step3_title: 'Passwortmanager nutzen und lange, einzigartige Passwörter wählen',
+        step3_desc: 'MFA schützt vor gestohlenen Passwörtern, aber eine zusätzliche Schicht von starken Passwörtern ist immer noch wichtig:',
+        step3_a: 'Nutzen Sie einen Passwort-Manager',
+        step3_a_desc: 'Ein guter Passwort-Manager (z.B. Bitwarden, 1Password, KeePass) speichert Ihre Passwörter sicher und erzeugt automatisch starke, einzigartige Passwörter. Sie müssen sich nur das Master-Passwort merken.',
+        step3_b: 'Für wichtige Konten lange Passwörter wählen',
+        step3_b_desc: '15-20 Zeichen – minimum für kritische Konten (E-Mail, Cloud, Banking) | Mindestens 8-12 Zeichen – für normale Konten | Mischung aus Groß-, Kleinbuchstaben, Zahlen und Sonderzeichen: aB3$xYz9_mN2!pQ',
+        mindestens: 'Mindestens 8-12 Zeichen',
+        mischung: 'Mischung aus Groß-, Kleinbuchstaben, Zahlen und Sonderzeichen:',
+        step3_c: 'Wiederverwendung vermeiden',
+        step3_c_desc: 'Verwenden Sie nicht das gleiche Passwort für mehrere Konten. Wenn ein Service gehackt wird, ist nur dieses Konto gefährdet, nicht alle anderen. Ein Passwort-Manager macht dies einfach.',
+        
+        step4_title: 'Verdächtige Login-Prompts niemals blind bestätigen',
+        step4_desc: 'Jetzt, wo Sie MFA aktiviert haben, erhalten Sie Benachrichtigungen bei Anmeldeversuchen. Das ist Ihr Sicherheitsschutzschild – nutzen Sie es richtig:',
+        step4_do: '✅ Richtig machen:',
+        step4_do1: 'Überprüfen Sie immer: Wenn Sie sich gerade nicht anmelden wollten, lehnen Sie ab.',
+        step4_do2: 'Achten Sie auf Zeit und Ort: Ein Login um 3 Uhr morgens oder von anderswo auf der Welt ist verdächtig.',
+        step4_do3: 'Wenn Sie Ihr Telefon gerade in der Hand haben, aber nie auf „Bestätigen" geklickt haben, ist es eine fremde Person – lehnen Sie ab.',
+        step4_do4: 'Im Zweifelsfall immer ablehnen – Ihr eigenes Login versuchen ist sicherer als ein falsches zu akzeptieren.',
+        step4_apathy: '⚠️ Vorsicht vor MFA-Fatigue-Attacken',
+        step4_apathy_desc: 'Ein böser Trick ist, jemanden mit vielen Notifications zu bombardieren – und zu hoffen, dass er/sie irgendwann einfach auf „Bestätigen" klickt, ohne nachzudenken (MFA Fatigue). Regel: Wenn Sie nicht gerade versuchen, sich anzumelden, lehnen Sie ab – immer.',
+        step4_apathy_rule: 'Regel: Wenn Sie nicht gerade versuchen, sich anzumelden, lehnen Sie ab – immer.',
+        
+        pill_checklist: '✔️ Checkliste',
+        checklist_title: 'Habe ich alles getan?',
+        checklist_intro: 'Gehen Sie diese Checkliste durch, um sicherzustellen, dass Ihre Kontosicherheit gestärkt ist:',
+        check1: '☐ MFA für mein Hauptkonto aktiviert (E-Mail, ILIAS, Cloud, Banking)',
+        check2: '☐ Die Methode ist Sicherheitsschlüssel, Passkey oder Authenticator-App (nicht SMS)',
+        check3: '☐ Backup-Codes ausgedruckt und sicher gelegt',
+        check4: '☐ Passwortmanager installiert und konfiguriert',
+        check5: '☐ Alle wichtigen Konten mit langen, einzigartigen Passwörtern neu belegt',
+        check6: '☐ MFA-Benachrichtigungen verstanden und getestet',
+        check7: '☐ Kontakte informiert: Diese MFA-Methode funktioniert nur mit meinem Gerät',
+        
+        congrats_title: '🎉 Herzlichen Glückwunsch!',
+        congrats_desc: 'Sie haben die wichtigsten Schritte für Kontosicherheit unternommen. Sie sind jetzt vor den meisten automatisierten Angriffsszenarien geschützt und erhöhen damit auch die Sicherheit von Organisationen und Netzwerken, in denen Sie tätig sind.',
+        congrats_final: 'Denken Sie daran: Das ist nicht einmalig – überprüfen Sie gelegentlich Ihre MFA-Einstellungen und aktualisieren Sie Ihre Backup-Codes, wenn Sie neue Geräte bekommen.',
+        
+        cta: 'Jetzt zum Login und MFA aktivieren'
+      },
+      en: {
+        back: '← Back',
+        pill: '✅ Implement immediately',
+        title: 'Your next steps',
+        subtitle: 'With this guide, you can enable MFA in a few minutes and dramatically improve your account security.',
+        
+        step1_title: 'Enable MFA on your account (authenticator app or security key preferred)',
+        step1_intro: 'The first step is to enable MFA for your account:',
+        step1_a: 'Go to your account security settings',
+        step1_a_desc: 'On most platforms, you\'ll find this under "Security" or "Privacy" in account settings. On ILIAS, it is located in the user profile.',
+        step1_b: 'Choose the MFA method',
+        empfohlen: 'Recommended:',
+        step1_b_opt1: 'Security key (maximum security) or Passkeys (easy and secure)',
+        gut: 'Good:',
+        step1_b_opt2: 'Authenticator app (e.g., Google Authenticator, Microsoft Authenticator, Authy)',
+        notwendig: 'Necessary:',
+        step1_b_opt3: 'SMS as a fallback if nothing else is available',
+        step1_c: 'Follow the service\'s instructions',
+        step1_c_desc: 'The service will guide you through the setup. You will be asked to confirm a code to enable MFA. This is normal and an important security step.',
+        step1_d: 'Save the backup codes',
+        step1_d_desc: 'Almost all services generate 10-20 backup codes. You can use these if you lose your phone or security key. Store these in a safe place – not in your email inbox, not on your computer. A safe, vault or a piece of paper in a cabinet are better options.',
+        
+        step2_title: 'Store backup codes securely (not in email inbox)',
+        step2_desc: 'The backup codes are your emergency plan. If you lose your MFA device or it doesn\'t work, you can still log in with them. That\'s why they must be stored safely:',
+        step2_secure: '✅ Secure:',
+        step2_secure1: 'Printed in a safe / vault',
+        step2_secure2: 'Handwritten and placed in a locked container',
+        step2_secure3: 'In an encrypted password manager (e.g., KeePass, Bitwarden) with a strong master password',
+        step2_secure4: 'Physically with a trusted person (family, friend)',
+        step2_unsecure: '❌ Insecure:',
+        step2_unsecure1: 'In your email inbox (if the attacker has your password, they also have the codes)',
+        step2_unsecure2: 'In a shared cloud folder (Google Drive, OneDrive, etc.)',
+        step2_unsecure3: 'On the desktop or in an unencrypted notes file',
+        step2_unsecure4: 'Photographed and sent via WhatsApp/Signal/Telegram',
+        
+        step3_title: 'Use a password manager and choose long, unique passwords',
+        step3_desc: 'MFA protects against stolen passwords, but an additional layer of strong passwords is still important:',
+        step3_a: 'Use a password manager',
+        step3_a_desc: 'A good password manager (e.g., Bitwarden, 1Password, KeePass) securely stores your passwords and automatically generates strong, unique passwords. You only need to remember the master password.',
+        step3_b: 'Choose long passwords for important accounts',
+        step3_b_desc: '15-20 characters – minimum for critical accounts (email, cloud, banking) | At least 8-12 characters – for normal accounts | Mix of uppercase, lowercase, numbers and special characters: aB3$xYz9_mN2!pQ',
+        mindestens: 'At least 8-12 characters',
+        mischung: 'Mix of uppercase, lowercase, numbers and special characters:',
+        step3_c: 'Avoid reuse',
+        step3_c_desc: 'Don\'t use the same password for multiple accounts. If a service is hacked, only that account is at risk, not all others. A password manager makes this easy.',
+        
+        step4_title: 'Never blindly confirm suspicious login prompts',
+        step4_desc: 'Now that you have MFA enabled, you will receive notifications for login attempts. This is your security shield – use it correctly:',
+        step4_do: '✅ Do it right:',
+        step4_do1: 'Always check: if you didn\'t just try to log in, deny it.',
+        step4_do2: 'Pay attention to time and location: a login at 3 AM or from the other side of the world is suspicious.',
+        step4_do3: 'If you have your phone in your hand but never clicked "confirm", it\'s someone else – deny it.',
+        step4_do4: 'When in doubt, always deny – trying your own login is safer than accepting a false one.',
+        step4_apathy: '⚠️ Beware of MFA Fatigue Attacks',
+        step4_apathy_desc: 'A nasty trick is to bombard someone with many notifications – hoping they eventually just click "confirm" without thinking (MFA fatigue). Rule: If you\'re not currently trying to log in, always deny.',
+        step4_apathy_rule: 'Rule: If you\'re not currently trying to log in, always deny.',
+        
+        pill_checklist: '✔️ Checklist',
+        checklist_title: 'Have I done everything?',
+        checklist_intro: 'Go through this checklist to ensure your account security is enhanced:',
+        check1: '☐ MFA enabled for my main account (email, ILIAS, cloud, banking)',
+        check2: '☐ The method is security key, passkey or authenticator app (not SMS)',
+        check3: '☐ Backup codes printed and stored safely',
+        check4: '☐ Password manager installed and configured',
+        check5: '☐ All important accounts updated with long, unique passwords',
+        check6: '☐ MFA notifications understood and tested',
+        check7: '☐ Informed contacts: This MFA method only works with my device',
+        
+        congrats_title: '🎉 Congratulations!',
+        congrats_desc: 'You have taken the most important steps for account security. You are now protected against most automated attack scenarios and also increase the security of organizations and networks in which you operate.',
+        congrats_final: 'Remember: This is not a one-time thing – periodically review your MFA settings and update your backup codes when you get new devices.',
+        
+        cta: 'Go to login and enable MFA now'
+      }
+    };
+
+    function setLanguage(lang) {
+      localStorage.setItem('language', lang);
+      document.documentElement.lang = lang;
+      document.getElementById('html').setAttribute('lang', lang);
+      
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+      
+      document.getElementById('lang-de').classList.toggle('active', lang === 'de');
+      document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('language') || 'de';
+      setLanguage(savedLang);
+    });
+  </script>
+</body>
+</html>

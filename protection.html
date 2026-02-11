@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="de" id="html">
+<head>
+  <script>
+    if (window.location.protocol !== 'file:') {
+      document.write('<base href="/">');
+    }
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wie MFA schützt</title>
+  <link rel="stylesheet" href="css/demo_styles.css">
+  <style>
+    .language-switcher {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+    .language-switcher button {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      margin-left: 5px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .language-switcher button:hover {
+      background: #0056b3;
+    }
+    .language-switcher button.active {
+      background: #28a745;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #007bff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+    .detail-section {
+      background: #1b3a5c;
+      color: white;
+      border-left: 4px solid #28a745;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+    .detail-section h3 {
+      margin-top: 0;
+      color: #28a745;
+    }
+    .mfa-types {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin: 20px 0;
+    }
+    .mfa-type {
+      background: #1b3a5c;
+      color: white;
+      border: 2px solid #28a745;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    .mfa-type h4 {
+      margin-top: 0;
+      color: #28a745;
+    }
+    .grid-card {
+      background: #1b3a5c;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="language-switcher">
+    <button id="lang-de" class="active" onclick="setLanguage('de')">Deutsch</button>
+    <button id="lang-en" onclick="setLanguage('en')">English</button>
+  </div>
+
+  <div class="layout">
+    <a class="back-link" href="threats.html" data-i18n="back">← Zurück</a>
+
+    <div class="hero">
+      <div class="pill"><span data-i18n="pill">🛡️ Wie MFA schützt</span></div>
+      <h1 data-i18n="title">Zweiter Faktor, zweites Schloss</h1>
+      <p class="tagline" data-i18n="subtitle">Mehr-Faktor-Authentifizierung ist wie ein zweites Schloss an der Tür – auch wenn der Schlüssel (Passwort) gestohlen wird, bleibt der Zugang verschlossen.</p>
+    </div>
+
+    <div class="detail-section">
+      <h3 data-i18n="protection1-title">Ein gestohlenes Passwort reicht nicht – Login wird blockiert</h3>
+      <p data-i18n="protection1-detail">Mit MFA aktiviert verläuft der Login in zwei Schritten: Zuerst geben Sie Ihr Passwort ein. Der Server akzeptiert es und verlangt dann einen zweiten Faktor – einen Code oder eine Bestätigung, die nur Sie liefern können. Selbst wenn ein Angreifer Ihr Passwort hat, bleibt die Tür zu – er kann nicht weiterkommen, ohne auch den zweiten Faktor zu haben. Mit nur dem Passwort ist der Einbruch gescheitert.</p>
+      <p data-i18n="protection1-example"><strong>Beispiel:</strong> Ein Angreifer hat Ihr Passwort gehackt. Er versucht sich anzumelden – das Passwort wird akzeptiert, aber dann verlangt das System einen Authenticator-Code. Der Angreifer sitzt fest und kann nicht weiter eindringen.</p>
+    </div>
+
+    <div class="detail-section">
+      <h3 data-i18n="protection2-title">Push/OTP/Hardware-Token bestätigen, dass Sie wirklich Sie sind</h3>
+      <p data-i18n="protection2-detail">Es gibt verschiedene Arten von zweiten Faktoren – alle haben eines gemeinsam: Sie können nur von Ihnen bereitgestellt werden. Ein Push-Benachrichtigung auf Ihrem Handy, ein zeitgebundener Code aus einer Authenticator-App, ein Sicherheitsschlüssel mit privatem Schlüssel – diese Faktoren sind entweder an ein physisches Gerät gebunden oder nur Sie können sie erzeugen. Der Angreifer sitzt hinter einem Computer und kann diese Faktoren nicht nachahmen, ohne Ihr Telefon oder Ihren Sicherheitsschlüssel zu stehlen.</p>
+      <p data-i18n="protection2-example"><strong>Beispiel:</strong> Sie verwenden Google Authenticator. Wenn jemand Ihr Passwort knackt und sich anmeldet, sendet Google einen Push an Ihr Telefon. Sie tippen „Ablehnen" – der Login schlägt fehl. Der Angreifer kann nicht fortschreiten, ohne physisch Ihr Telefon zu haben.</p>
+    </div>
+
+    <div class="detail-section">
+      <h3 data-i18n="protection3-title">Ungewohnte Anmeldeversuche fallen sofort auf</h3>
+      <p data-i18n="protection3-detail">MFA macht Sicherheit sichtbar. Ein Login von einem neuen Ort, einer neuen IP-Adresse oder zu einer ungewöhnlichen Zeit wird als verdächtig erkannt. Sie erhalten eine Benachrichtigung und können den Anmeldeversuch sofort ablehnen – bevor der Angreifer eindringt. Ohne MFA hätte der Angreifer stille Zugriff auf Ihr Konto, ohne dass Sie es bemerken.</p>
+      <p data-i18n="protection3-example"><strong>Beispiel:</strong> Ihr Konto wird von einem Server in Russland aus zugegriffen, während Sie gerade in München sind. MFA zeigt Ihnen die verdächtige Aktivität. Sie erkennen sofort, dass Sie nicht eingeloggt sind und blockieren den Zugriff.</p>
+    </div>
+
+    <div class="detail-section">
+      <h3 data-i18n="protection4-title">Risiko von Kontoübernahmen sinkt drastisch (laut Studien um >90%)</h3>
+      <p data-i18n="protection4-detail">Studien von Google, Microsoft und anderen Sicherheitsunternehmen zeigen einheitlich: MFA reduziert das Risiko von erfolgreichen Account-Übernahmen um über 90 %. Das ist nicht weil MFA undurchdringlich ist, sondern weil Angreifer massenhaft operieren – und der zusätzliche Aufwand für den zweiten Faktor ist zu groß. Die Angreifer wechseln zu einfacheren Zielen.</p>
+      <p data-i18n="protection4-detail2">Dieser massive Schutz ist verfügbar – Sie müssen nur MFA aktivieren.</p>
+    </div>
+
+    <div class="grid-card">
+      <div class="pill"><span data-i18n="pill-types">🔐 MFA-Arten</span></div>
+      <h2 data-i18n="types-title">Verschiedene zweite Faktoren</h2>
+      <p data-i18n="types-intro">Je nach Dienst können unterschiedliche MFA-Methoden verwendet werden:</p>
+
+      <div class="mfa-types">
+        <div class="mfa-type">
+          <h4 data-i18n="type1-name">Authenticator-App</h4>
+          <p data-i18n="type1-desc">Eine App auf Ihrem Handy generiert zeitgebundene 6-Ziffern-Codes. Alle 30 Sekunden ändert sich der Code. Demo: Google Authenticator, Microsoft Authenticator.</p>
+        </div>
+        <div class="mfa-type">
+          <h4 data-i18n="type2-name">Push-Benachrichtigung</h4>
+          <p data-i18n="type2-desc">Wenn Sie sich anmelden, erhalten Sie eine Benachrichtigung auf Ihrem Telefon: „Jemand versucht, sich anzumelden – bestätigen Sie?" Sie tippen „Ja" oder „Nein".</p>
+        </div>
+        <div class="mfa-type">
+          <h4 data-i18n="type3-name">SMS/Telefon</h4>
+          <p data-i18n="type3-desc">Sie erhalten einen Code per SMS oder Anruf. Weniger sicher als Authenticator, aber besser als nichts. Veraltet, aber noch weit verbreitet.</p>
+        </div>
+        <div class="mfa-type">
+          <h4 data-i18n="type4-name">Sicherheitsschlüssel</h4>
+          <p data-i18n="type4-desc">Ein physischer USB-Stick oder NFC-Chip (z.B. Yubikey). Sie inserieren ihn oder halten ihn an den Computer, um sich anzumelden. Maximale Sicherheit.</p>
+        </div>
+        <div class="mfa-type">
+          <h4 data-i18n="type5-name">Backup-Codes</h4>
+          <p data-i18n="type5-desc">Eine Reihe von statischen Codes, die Sie speichern – für den Fall, dass Sie Ihr Telefon oder Ihren Schlüssel verlieren. Verwenden sie nur als Notfall-Fallback.</p>
+        </div>
+        <div class="mfa-type">
+          <h4 data-i18n="type6-name">Passkeys</h4>
+          <p data-i18n="type6-desc">Die neueste und sicherste Methode. Ein asymmetrischer Schlüssel ist auf Ihrem Gerät gespeichert und wird zur Authentifizierung verwendet. Funktioniert auch über Plattformgrenzen hinweg.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-card">
+      <div class="pill"><span data-i18n="pill-recommendation">⭐ Empfehlung</span></div>
+      <h2 data-i18n="recommendation-title">Beste Praktiken</h2>
+      <ul>
+        <li data-i18n="rec1"><strong>Preferred (am sichersten):</strong> Sicherheitsschlüssel oder Passkeys – können nicht gehackt, verloren oder gefälscht werden.</li>
+        <li data-i18n="rec2"><strong>Sehr gut:</strong> Authenticator-App – zeitbasiert, auf Ihrem Gerät, nicht abhängig von SMS-Infrastruktur.</li>
+        <li data-i18n="rec3"><strong>Akzeptabel:</strong> Push-Benachrichtigungen – müssen Sie aktiv bestätigen, aber manchmal für mehrere kritische Konten zugleich anstrengend.</li>
+        <li data-i18n="rec4"><strong>Nicht empfohlen:</strong> SMS – anfällig für SIM-Swapping und Abfangung. Nur ein Fall für Dienste, die keine besseren Optionen haben.</li>
+        <li data-i18n="rec5"><strong>Haben Sie mehrere Methoden:</strong> Backup-Codes an einem sicheren Ort ablegen (Safe, Tresor, nicht ins Postfach!), falls Sie Ihr Hauptgerät verlieren.</li>
+      </ul>
+    </div>
+
+    <div class="hero" style="margin-top: 40px; text-align: center;">
+      <a class="cta" href="https://login.hs-heilbronn.de"><span data-i18n="cta">MFA jetzt aktivieren</span> →</a>
+    </div>
+  </div>
+
+  <script>
+    const translations = {
+      de: {
+        back: '← Zurück',
+        pill: '🛡️ Wie MFA schützt',
+        title: 'Zweiter Faktor, zweites Schloss',
+        subtitle: 'Mehr-Faktor-Authentifizierung ist wie ein zweites Schloss an der Tür – auch wenn der Schlüssel (Passwort) gestohlen wird, bleibt der Zugang verschlossen.',
+        
+        protection1_title: 'Ein gestohlenes Passwort reicht nicht – Login wird blockiert',
+        protection1_detail: 'Mit MFA aktiviert verläuft der Login in zwei Schritten: Zuerst geben Sie Ihr Passwort ein. Der Server akzeptiert es und verlangt dann einen zweiten Faktor – einen Code oder eine Bestätigung, die nur Sie liefern können. Selbst wenn ein Angreifer Ihr Passwort hat, bleibt die Tür zu – er kann nicht weiterkommen, ohne auch den zweiten Faktor zu haben. Mit nur dem Passwort ist der Einbruch gescheitert.',
+        protection1_example: 'Beispiel: Ein Angreifer hat Ihr Passwort gehackt. Er versucht sich anzumelden – das Passwort wird akzeptiert, aber dann verlangt das System einen Authenticator-Code. Der Angreifer sitzt fest und kann nicht weiter eindringen.',
+        
+        protection2_title: 'Push/OTP/Hardware-Token bestätigen, dass Sie wirklich Sie sind',
+        protection2_detail: 'Es gibt verschiedene Arten von zweiten Faktoren – alle haben eines gemeinsam: Sie können nur von Ihnen bereitgestellt werden. Ein Push-Benachrichtigung auf Ihrem Handy, ein zeitgebundener Code aus einer Authenticator-App, ein Sicherheitsschlüssel mit privatem Schlüssel – diese Faktoren sind entweder an ein physisches Gerät gebunden oder nur Sie können sie erzeugen. Der Angreifer sitzt hinter einem Computer und kann diese Faktoren nicht nachahmen, ohne Ihr Telefon oder Ihren Sicherheitsschlüssel zu stehlen.',
+        protection2_example: 'Beispiel: Sie verwenden Google Authenticator. Wenn jemand Ihr Passwort knackt und sich anmeldet, sendet Google einen Push an Ihr Telefon. Sie tippen „Ablehnen" – der Login schlägt fehl. Der Angreifer kann nicht fortschreiten, ohne physisch Ihr Telefon zu haben.',
+        
+        protection3_title: 'Ungewohnte Anmeldeversuche fallen sofort auf',
+        protection3_detail: 'MFA macht Sicherheit sichtbar. Ein Login von einem neuen Ort, einer neuen IP-Adresse oder zu einer ungewöhnlichen Zeit wird als verdächtig erkannt. Sie erhalten eine Benachrichtigung und können den Anmeldeversuch sofort ablehnen – bevor der Angreifer eindringt. Ohne MFA hätte der Angreifer stille Zugriff auf Ihr Konto, ohne dass Sie es bemerken.',
+        protection3_example: 'Beispiel: Ihr Konto wird von einem Server in Russland aus zugegriffen, während Sie gerade in München sind. MFA zeigt Ihnen die verdächtige Aktivität. Sie erkennen sofort, dass Sie nicht eingeloggt sind und blockieren den Zugriff.',
+        
+        protection4_title: 'Risiko von Kontoübernahmen sinkt drastisch (laut Studien um >90%)',
+        protection4_detail: 'Studien von Google, Microsoft und anderen Sicherheitsunternehmen zeigen einheitlich: MFA reduziert das Risiko von erfolgreichen Account-Übernahmen um über 90 %. Das ist nicht weil MFA undurchdringlich ist, sondern weil Angreifer massenhaft operieren – und der zusätzliche Aufwand für den zweiten Faktor ist zu groß. Die Angreifer wechseln zu einfacheren Zielen.',
+        protection4_detail2: 'Dieser massive Schutz ist verfügbar – Sie müssen nur MFA aktivieren.',
+        
+        pill_types: '🔐 MFA-Arten',
+        types_title: 'Verschiedene zweite Faktoren',
+        types_intro: 'Je nach Dienst können unterschiedliche MFA-Methoden verwendet werden:',
+        
+        type1_name: 'Authenticator-App',
+        type1_desc: 'Eine App auf Ihrem Handy generiert zeitgebundene 6-Ziffern-Codes. Alle 30 Sekunden ändert sich der Code. Demo: Google Authenticator, Microsoft Authenticator.',
+        type2_name: 'Push-Benachrichtigung',
+        type2_desc: 'Wenn Sie sich anmelden, erhalten Sie eine Benachrichtigung auf Ihrem Telefon: „Jemand versucht, sich anzumelden – bestätigen Sie?" Sie tippen „Ja" oder „Nein".',
+        type3_name: 'SMS/Telefon',
+        type3_desc: 'Sie erhalten einen Code per SMS oder Anruf. Weniger sicher als Authenticator, aber besser als nichts. Veraltet, aber noch weit verbreitet.',
+        type4_name: 'Sicherheitsschlüssel',
+        type4_desc: 'Ein physischer USB-Stick oder NFC-Chip (z.B. Yubikey). Sie inserieren ihn oder halten ihn an den Computer, um sich anzumelden. Maximale Sicherheit.',
+        type5_name: 'Backup-Codes',
+        type5_desc: 'Eine Reihe von statischen Codes, die Sie speichern – für den Fall, dass Sie Ihr Telefon oder Ihren Schlüssel verlieren. Verwenden sie nur als Notfall-Fallback.',
+        type6_name: 'Passkeys',
+        type6_desc: 'Die neueste und sicherste Methode. Ein asymmetrischer Schlüssel ist auf Ihrem Gerät gespeichert und wird zur Authentifizierung verwendet. Funktioniert auch über Plattformgrenzen hinweg.',
+        
+        pill_recommendation: '⭐ Empfehlung',
+        recommendation_title: 'Beste Praktiken',
+        rec1: 'Preferred (am sichersten): Sicherheitsschlüssel oder Passkeys – können nicht gehackt, verloren oder gefälscht werden.',
+        rec2: 'Sehr gut: Authenticator-App – zeitbasiert, auf Ihrem Gerät, nicht abhängig von SMS-Infrastruktur.',
+        rec3: 'Akzeptabel: Push-Benachrichtigungen – müssen Sie aktiv bestätigen, aber manchmal für mehrere kritische Konten zugleich anstrengend.',
+        rec4: 'Nicht empfohlen: SMS – anfällig für SIM-Swapping und Abfangung. Nur ein Fall für Dienste, die keine besseren Optionen haben.',
+        rec5: 'Haben Sie mehrere Methoden: Backup-Codes an einem sicheren Ort ablegen (Safe, Tresor, nicht ins Postfach!), falls Sie Ihr Hauptgerät verlieren.',
+        
+        cta: 'MFA jetzt aktivieren'
+      },
+      en: {
+        back: '← Back',
+        pill: '🛡️ How MFA protects',
+        title: 'Second factor, second lock',
+        subtitle: 'Multi-factor authentication is like a second lock on the door – even if the key (password) is stolen, access remains locked.',
+        
+        protection1_title: 'A stolen password is not enough – login is blocked',
+        protection1_detail: 'With MFA enabled, login happens in two steps: First, you enter your password. The server accepts it and then requests a second factor – a code or confirmation that only you can provide. Even if an attacker has your password, the door remains closed – he cannot proceed without the second factor. With just the password, the break-in has failed.',
+        protection1_example: 'Example: An attacker has hacked your password. He tries to log in – the password is accepted, but then the system requests an authenticator code. The attacker is stuck and cannot proceed.',
+        
+        protection2_title: 'Push/OTP/Hardware token confirms that you are really you',
+        protection2_detail: 'There are different types of second factors – all have one thing in common: only you can provide them. A push notification on your phone, a time-bound code from an authenticator app, a security key with a private key – these factors are either bound to a physical device or only you can generate them. The attacker sits behind a computer and cannot replicate these factors without stealing your phone or security key.',
+        protection2_example: 'Example: You use Google Authenticator. If someone cracks your password and logs in, Google sends a push to your phone. You tap "Deny" – the login fails. The attacker cannot proceed without physically having your phone.',
+        
+        protection3_title: 'Unusual login attempts are immediately noticed',
+        protection3_detail: 'MFA makes security visible. A login from a new location, a new IP address, or at an unusual time is recognized as suspicious. You receive a notification and can immediately deny the login attempt – before the attacker breaks in. Without MFA, the attacker would have silent access to your account without you noticing.',
+        protection3_example: 'Example: Your account is accessed from a server in Russia while you are currently in Munich. MFA shows you the suspicious activity. You immediately recognize that you are not logged in and block access.',
+        
+        protection4_title: 'Risk of account takeover drops dramatically (according to studies by >90%)',
+        protection4_detail: 'Studies by Google, Microsoft and other security companies consistently show: MFA reduces the risk of successful account takeovers by over 90%. This is not because MFA is impenetrable, but because attackers operate on a massive scale – and the additional effort required for the second factor is too great. Attackers move on to easier targets.',
+        protection4_detail2: 'This massive protection is available – you just have to enable MFA.',
+        
+        pill_types: '🔐 MFA Types',
+        types_title: 'Different second factors',
+        types_intro: 'Depending on the service, different MFA methods can be used:',
+        
+        type1_name: 'Authenticator App',
+        type1_desc: 'An app on your phone generates time-based 6-digit codes. The code changes every 30 seconds. Examples: Google Authenticator, Microsoft Authenticator.',
+        type2_name: 'Push Notification',
+        type2_desc: 'When you log in, you receive a notification on your phone: "Someone is trying to log in – confirm?" You tap "Yes" or "No".',
+        type3_name: 'SMS/Phone',
+        type3_desc: 'You receive a code via SMS or call. Less secure than Authenticator, but better than nothing. Outdated, but still widely used.',
+        type4_name: 'Security Key',
+        type4_desc: 'A physical USB stick or NFC chip (e.g., Yubikey). You insert it or hold it up to your computer to log in. Maximum security.',
+        type5_name: 'Backup Codes',
+        type5_desc: 'A series of static codes that you save – in case you lose your phone or security key. Use them only as an emergency fallback.',
+        type6_name: 'Passkeys',
+        type6_desc: 'The newest and most secure method. An asymmetric key is stored on your device and used for authentication. Also works across platform boundaries.',
+        
+        pill_recommendation: '⭐ Recommendation',
+        recommendation_title: 'Best Practices',
+        rec1: 'Preferred (most secure): Security keys or passkeys – cannot be hacked, lost or faked.',
+        rec2: 'Very good: Authenticator app – time-based, on your device, not dependent on SMS infrastructure.',
+        rec3: 'Acceptable: Push notifications – require you to actively confirm, but sometimes cumbersome for multiple critical accounts at once.',
+        rec4: 'Not recommended: SMS – vulnerable to SIM swapping and interception. Only an option for services that don\'t have better options.',
+        rec5: 'Have multiple methods: Store backup codes securely (safe, vault, not in your mailbox!) in case you lose your main device.',
+        
+        cta: 'Enable MFA now'
+      }
+    };
+
+    function setLanguage(lang) {
+      localStorage.setItem('language', lang);
+      document.documentElement.lang = lang;
+      document.getElementById('html').setAttribute('lang', lang);
+      
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+      
+      document.getElementById('lang-de').classList.toggle('active', lang === 'de');
+      document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('language') || 'de';
+      setLanguage(savedLang);
+    });
+  </script>
+</body>
+</html>

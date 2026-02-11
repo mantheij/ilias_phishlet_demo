@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="de" id="html">
+<head>
+  <script>
+    if (window.location.protocol !== 'file:') {
+      document.write('<base href="/">');
+    }
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Häufige Risiken ohne MFA</title>
+  <link rel="stylesheet" href="css/demo_styles.css">
+  <style>
+    .language-switcher {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+    .language-switcher button {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      margin-left: 5px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .language-switcher button:hover {
+      background: #0056b3;
+    }
+    .language-switcher button.active {
+      background: #28a745;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #007bff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+    .detail-section {
+      background: #1b3a5c;
+      color: white;
+      border-left: 4px solid #dc3545;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+    .detail-section h3 {
+      margin-top: 0;
+      color: #dc3545;
+    }
+    .grid-card {
+      background: #1b3a5c;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="language-switcher">
+    <button id="lang-de" class="active" onclick="setLanguage('de')">Deutsch</button>
+    <button id="lang-en" onclick="setLanguage('en')">English</button>
+  </div>
+
+  <div class="layout">
+    <a class="back-link" href="threats.html" data-i18n="back">← Zurück</a>
+
+    <div class="hero">
+      <div class="pill"><span data-i18n="pill">🚨 Häufige Risiken</span></div>
+      <h1 data-i18n="title">Was ohne MFA schiefgeht</h1>
+      <p class="tagline" data-i18n="subtitle">Ohne Mehr-Faktor-Authentifizierung sind Ihre Konten anfällig für verschiedene Angriffsszenarien.</p>
+    </div>
+
+    <div class="detail-section">
+      <h3 data-i18n="risk1-title">Passwort aus altem Leak wiederverwendet → sofortige Kontoübernahme</h3>
+      <p data-i18n="risk1-detail">Jedes Jahr entstehen Datenlecks, bei denen Millionen von Passwörtern gestohlen werden. Viele Menschen verwenden die gleichen Passwörter für mehrere Dienste. Wenn Ihr Passwort in einem Leak veröffentlicht wird, versuchen Angreifer sofort, sich damit in anderen bekannten Diensten anzumelden – ohne MFA brauchen sie dafür nur das Passwort. Innerhalb von Sekunden können sie Ihr Konto übernehmen und haben unbegrenzten Zugriff.</p>
+      <p data-i18n="risk1-example"><strong>Beispiel:</strong> Ein Shopping-Portal wird gehackt. Ihr Passwort landet im Darknet. Angreifer automatisieren das Login bei Gmail, PayPal und Ihrem Arbeitssystem – alle knacken mit dem gleichen Passwort.</p>
+    </div>
+
+    <div class="detail-section">
+      <h3 data-i18n="risk2-title">Phishing-Link geklickt → Angreifer loggt sich sofort ein</h3>
+      <p data-i18n="risk2-detail">Phishing ist eine der erfolgreichsten Angriffsmethoden. Sie klicken auf einen Link in einer scheinbar legitimen E-Mail und landen auf einer gefälschten Login-Seite, die der echten zum Verwechseln ähnlich sieht. Sie geben Ihre Anmeldedaten ein – und der Angreifer hat alles, was er braucht. Ohne MFA kann er sich sofort anmelden und Sie während der Anmeldung locked sind.</p>
+      <p data-i18n="risk2-example"><strong>Beispiel:</strong> Eine Mail vermeintlich vom IT-Support: „Ihre Kontosicherheit überprüfen" – Sie klicken, geben Ihr Passwort ein. Der Attacker loggt sich im selben Moment ein, ändert Ihr Passwort und sperrt Sie aus.</p>
+    </div>
+
+    <div class="detail-section">
+      <h3 data-i18n="risk3-title">Keylogger auf Privat-PC → Anmeldeinfos wandern direkt ins Darknet</h3>
+      <p data-i18n="risk3-detail">Wenn Ihr Computer mit einem Keylogger infiziert ist (z.B. durch Malware oder einen USB-Stick), wird jede Tastatureingabe aufgezeichnet – auch Ihre Passwörter. Der Keylogger sendet die Daten an den Angreifer, der damit sofort in Ihr Konto eindringen kann. Ohne MFA ist Ihr Passwort das einzige Hindernis, und das ist nun überwunden.</p>
+      <p data-i18n="risk3-example"><strong>Beispiel:</strong> Sie laden eine infizierte Datei herunter. Der Keylogger lädt sich automatisch herunter. Beim nächsten Login werden Ihre Anmeldedaten erfasst und an eine Server im Ausland übertragen. Der Angreifer hat kompletten Zugriff.</p>
+    </div>
+
+    <div class="detail-section">
+      <h3 data-i18n="risk4-title">Erratenes Standardpasswort → laterale Bewegung im Firmennetz</h3>
+      <p data-i18n="risk4-detail">Viele organisationen haben Standardpasswörter, die nicht geändert werden, oder schwache unternehmensweite Konventionen (z.B. Vorname + Geburtsjahr). Angreifer versuchen automatisiert bekannte Passwörter und Muster. Wenn sie Glück haben, knacken sie damit tausende Konten gleichzeitig. Dann können sie sich lateral im Unternehmensnetz bewegen – von Konto zu Konto, bis sie kritische Systeme oder Daten finden.</p>
+      <p data-i18n="risk4-example"><strong>Beispiel:</strong> Ein Firmware-Router hat das Standard-Admin-Passwort „admin123". Der Angreifer loggt sich ein, stellt sich auf den DHCP-Server und übernimmt das gesamte Netzwerk – um dann in Datenbanken und Cloud-Systeme einzudringen.</p>
+    </div>
+
+    <div class="grid-card">
+      <div class="pill"><span data-i18n="pill-takeaway">💡 Fazit</span></div>
+      <h2 data-i18n="takeaway-title">Warum diese Risiken existieren</h2>
+      <ul>
+        <li data-i18n="takeaway1">Das Passwort allein ist zu unsicher – es kann gestohlen, geleakt oder erraten werden.</li>
+        <li data-i18n="takeaway2">Angreifer arbeiten automatisiert in großem Maßstab – ein einzelnes Passwort öffnet hunderte oder tausende Türen.</li>
+        <li data-i18n="takeaway3">Ein zweiter Faktor kann nicht gestohlen werden wie ein Passwort – er ist an Sie persönlich gebunden.</li>
+        <li data-i18n="takeaway4">MFA ist die einzige praktische Lösung, um gegen diese automatisierten Angriffe zu schützen.</li>
+      </ul>
+    </div>
+
+    <div class="hero" style="margin-top: 40px; text-align: center;">
+      <a class="cta" href="https://login.hs-heilbronn.de"><span data-i18n="cta">MFA jetzt aktivieren</span> →</a>
+    </div>
+  </div>
+
+  <script>
+    const translations = {
+      de: {
+        back: '← Zurück',
+        pill: '🚨 Häufige Risiken',
+        title: 'Was ohne MFA schiefgeht',
+        subtitle: 'Ohne Mehr-Faktor-Authentifizierung sind Ihre Konten anfällig für verschiedene Angriffsszenarien.',
+        
+        risk1_title: 'Passwort aus altem Leak wiederverwendet → sofortige Kontoübernahme',
+        risk1_detail: 'Jedes Jahr entstehen Datenlecks, bei denen Millionen von Passwörtern gestohlen werden. Viele Menschen verwenden die gleichen Passwörter für mehrere Dienste. Wenn Ihr Passwort in einem Leak veröffentlicht wird, versuchen Angreifer sofort, sich damit in anderen bekannten Diensten anzumelden – ohne MFA brauchen sie dafür nur das Passwort. Innerhalb von Sekunden können sie Ihr Konto übernehmen und haben unbegrenzten Zugriff.',
+        risk1_example: 'Beispiel: Ein Shopping-Portal wird gehackt. Ihr Passwort landet im Darknet. Angreifer automatisieren das Login bei Gmail, PayPal und Ihrem Arbeitssystem – alle knacken mit dem gleichen Passwort.',
+        
+        risk2_title: 'Phishing-Link geklickt → Angreifer loggt sich sofort ein',
+        risk2_detail: 'Phishing ist eine der erfolgreichsten Angriffsmethoden. Sie klicken auf einen Link in einer scheinbar legitimen E-Mail und landen auf einer gefälschten Login-Seite, die der echten zum Verwechseln ähnlich sieht. Sie geben Ihre Anmeldedaten ein – und der Angreifer hat alles, was er braucht. Ohne MFA kann er sich sofort anmelden und Sie während der Anmeldung locked sind.',
+        risk2_example: 'Beispiel: Eine Mail vermeintlich vom IT-Support: „Ihre Kontosicherheit überprüfen" – Sie klicken, geben Ihr Passwort ein. Der Attacker loggt sich im selben Moment ein, ändert Ihr Passwort und sperrt Sie aus.',
+        
+        risk3_title: 'Keylogger auf Privat-PC → Anmeldeinfos wandern direkt ins Darknet',
+        risk3_detail: 'Wenn Ihr Computer mit einem Keylogger infiziert ist (z.B. durch Malware oder einen USB-Stick), wird jede Tastatureingabe aufgezeichnet – auch Ihre Passwörter. Der Keylogger sendet die Daten an den Angreifer, der damit sofort in Ihr Konto eindringen kann. Ohne MFA ist Ihr Passwort das einzige Hindernis, und das ist nun überwunden.',
+        risk3_example: 'Beispiel: Sie laden eine infizierte Datei herunter. Der Keylogger lädt sich automatisch herunter. Beim nächsten Login werden Ihre Anmeldedaten erfasst und an eine Server im Ausland übertragen. Der Angreifer hat kompletten Zugriff.',
+        
+        risk4_title: 'Erratenes Standardpasswort → laterale Bewegung im Firmennetz',
+        risk4_detail: 'Viele organisationen haben Standardpasswörter, die nicht geändert werden, oder schwache unternehmensweite Konventionen (z.B. Vorname + Geburtsjahr). Angreifer versuchen automatisiert bekannte Passwörter und Muster. Wenn sie Glück haben, knacken sie damit tausende Konten gleichzeitig. Dann können sie sich lateral im Unternehmensnetz bewegen – von Konto zu Konto, bis sie kritische Systeme oder Daten finden.',
+        risk4_example: 'Beispiel: Ein Firmware-Router hat das Standard-Admin-Passwort „admin123". Der Angreifer loggt sich ein, stellt sich auf den DHCP-Server und übernimmt das gesamte Netzwerk – um dann in Datenbanken und Cloud-Systeme einzudringen.',
+        
+        pill_takeaway: '💡 Fazit',
+        takeaway_title: 'Warum diese Risiken existieren',
+        takeaway1: 'Das Passwort allein ist zu unsicher – es kann gestohlen, geleakt oder erraten werden.',
+        takeaway2: 'Angreifer arbeiten automatisiert in großem Maßstab – ein einzelnes Passwort öffnet hunderte oder tausende Türen.',
+        takeaway3: 'Ein zweiter Faktor kann nicht gestohlen werden wie ein Passwort – er ist an Sie persönlich gebunden.',
+        takeaway4: 'MFA ist die einzige praktische Lösung, um gegen diese automatisierten Angriffe zu schützen.',
+        
+        cta: 'MFA jetzt aktivieren'
+      },
+      en: {
+        back: '← Back',
+        pill: '🚨 Common risks',
+        title: 'What goes wrong without MFA',
+        subtitle: 'Without multi-factor authentication, your accounts are vulnerable to various attack scenarios.',
+        
+        risk1_title: 'Password from old leak reused → immediate account takeover',
+        risk1_detail: 'Every year, data breaches occur where millions of passwords are stolen. Many people use the same passwords for multiple services. If your password is published in a leak, attackers immediately try to log in to other known services with it – without MFA, they only need the password. Within seconds, they can take over your account and have unlimited access.',
+        risk1_example: 'Example: A shopping portal is hacked. Your password ends up on the dark net. Attackers automate login attempts on Gmail, PayPal and your work system – all crack with the same password.',
+        
+        risk2_title: 'Phishing link clicked → attacker logs in immediately',
+        risk2_detail: 'Phishing is one of the most successful attack methods. You click on a link in an apparently legitimate email and land on a fake login page that looks just like the real one. You enter your login details – and the attacker has everything he needs. Without MFA, he can log in immediately.',
+        risk2_example: 'Example: An email supposedly from IT support: "Check your account security" – you click, enter your password. The attacker logs in at the same moment, changes your password and locks you out.',
+        
+        risk3_title: 'Keylogger on private PC → login info goes straight to the dark web',
+        risk3_detail: 'If your computer is infected with a keylogger (e.g., via malware or USB stick), every keystroke is recorded – including your passwords. The keylogger sends the data to the attacker, who can immediately enter your account. Without MFA, your password is the only obstacle, and it is now overcome.',
+        risk3_example: 'Example: You download an infected file. The keylogger automatically downloads. The next time you log in, your login credentials are captured and sent to a server abroad. The attacker has complete access.',
+        
+        risk4_title: 'Guessed default password → lateral movement in the corporate network',
+        risk4_detail: 'Many organizations have default passwords that are not changed, or weak company-wide conventions (e.g., first name + birth year). Attackers automatically try known passwords and patterns. If they\'re lucky, they crack thousands of accounts simultaneously. They can then move laterally through the corporate network – from account to account, until they find critical systems or data.',
+        risk4_example: 'Example: A firmware router has the standard admin password "admin123". The attacker logs in, sets up on the DHCP server and takes over the entire network – only to then penetrate databases and cloud systems.',
+        
+        pill_takeaway: '💡 Conclusion',
+        takeaway_title: 'Why these risks exist',
+        takeaway1: 'The password alone is too insecure – it can be stolen, leaked or guessed.',
+        takeaway2: 'Attackers work automatically on a large scale – a single password opens hundreds or thousands of doors.',
+        takeaway3: 'A second factor cannot be stolen like a password – it is bound to you personally.',
+        takeaway4: 'MFA is the only practical solution to protect against these automated attacks.',
+        
+        cta: 'Enable MFA now'
+      }
+    };
+
+    function setLanguage(lang) {
+      localStorage.setItem('language', lang);
+      document.documentElement.lang = lang;
+      document.getElementById('html').setAttribute('lang', lang);
+      
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+      
+      document.getElementById('lang-de').classList.toggle('active', lang === 'de');
+      document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('language') || 'de';
+      setLanguage(savedLang);
+    });
+  </script>
+</body>
+</html>
