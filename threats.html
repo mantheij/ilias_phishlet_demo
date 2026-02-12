@@ -115,7 +115,7 @@
         step2: 'Backup-Codes sicher ablegen (kein E-Mail-Postfach).',
         step3: 'Passwortmanager nutzen und lange, einzigartige Passwörter wählen.',
         step4: 'Verdächtige Login-Prompts niemals blind bestätigen.',
-        learn-more: 'Mehr erfahren'
+        learn_more: 'Mehr erfahren'
       },
       en: {
         pill1: '🔐 MFA saves accounts',
@@ -142,7 +142,7 @@
         step2: 'Store backup codes securely (not in email inbox).',
         step3: 'Use a password manager and choose long, unique passwords.',
         step4: 'Never blindly confirm suspicious login prompts.',
-        learn-more: 'Learn more'
+        learn_more: 'Learn more'
       }
     };
 
@@ -152,7 +152,7 @@
       document.getElementById('html').setAttribute('lang', lang);
       
       document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
+        const key = el.getAttribute('data-i18n').replace(/-/g, '_');
         if (translations[lang] && translations[lang][key]) {
           el.textContent = translations[lang][key];
         }
