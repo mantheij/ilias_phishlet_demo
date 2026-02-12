@@ -22,7 +22,7 @@ if [ -z "$IP" ]; then
     exit 1
 fi
 
-URL="http://${IP}/login.html"
+URL="http://${IP}/index.html"
 
 echo ""
 echo "===================================="

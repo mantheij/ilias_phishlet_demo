@@ -13,7 +13,7 @@ for /f "tokens=2 delims=:" %%a in ('ipconfig ^| findstr /c:"IPv4"') do (
 )
 set IP=%IP: =%
 
-set URL=http://%IP%/login.html
+set URL=http://%IP%/index.html
 
 echo.
 echo ====================================
