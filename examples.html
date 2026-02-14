@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="de" id="html">
+<head>
+  <script>
+    if (window.location.protocol !== 'file:') {
+      document.write('<base href="/">');
+    }
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ILIAS Phishlet Demo - Beispiele</title>
+  <link rel="stylesheet" href="css/patternfly.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/demo_styles.css">
+  <link rel="stylesheet" href="css/sidebar.css">
+  <style>
+    body {
+      font-size: 18px;
+    }
+    .language-switcher {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+    .language-switcher button {
+      background: #1e293b; /* Dunkel für dunklen Hintergrund */
+      color: #e2e8f0; /* Hell */
+      border: 1px solid #475569;
+      padding: 8px 12px;
+      margin-left: 5px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      min-width: 80px;
+    }
+    .language-switcher button:hover {
+      background: #334155;
+    }
+    .language-switcher button.active {
+      background: #22d3ee; /* Cyan accent */
+      color: #0f172a;
+    }
+
+    .card {
+      background: #1b3a5c;
+      color: white;
+      border: 1px solid #475569;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    }
+    .card h2 {
+      color: #22d3ee;
+      margin-top: 0;
+      font-size: 1.4em;
+    }
+    .card p {
+      line-height: 1.6;
+    }
+    .card button {
+      margin-top: 15px;
+    }
+
+    .layout {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #007bff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .hero .pill {
+      display: inline-block;
+      background: #22d3ee;
+      color: #0f172a;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      color: white;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+    .hero .tagline {
+      color: #cbd5e1;
+      font-size: 1.2em;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .detail-section {
+      background: #1b3a5c;
+      color: white;
+      border-left: 4px solid #22d3ee;
+      padding: 20px 20px 60px 20px;
+      margin: 20px 0;
+      border-radius: 4px;
+      position: relative;
+    }
+    .detail-section h3 {
+      margin-top: 0;
+      color: #22d3ee;
+    }
+    .detail-section button {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+    }
+
+    .grid-card {
+      background: #1b3a5c;
+      color: white;
+      border: 1px solid #475569;
+      border-radius: 8px;
+      padding: 30px;
+      margin: 30px 0;
+      text-align: center;
+    }
+    .grid-card .pill {
+      display: inline-block;
+      background: #22d3ee;
+      color: #0f172a;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+    .grid-card h2 {
+      color: white;
+      margin-bottom: 20px;
+      font-size: 1.8em;
+    }
+    .grid-card ul {
+      text-align: left;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .grid-card li {
+      margin-bottom: 10px;
+    }
+
+    .cta {
+      display: inline-block;
+      background: #22d3ee;
+      color: #0f172a;
+      padding: 15px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+      transition: background 0.3s ease;
+    }
+    .cta:hover {
+      background: #0ea5e9;
+    }
+  </style>
+</head>
+<body class="dark-mode">
+  <!-- Hamburger-Menü Icon -->
+  <button class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- Linke Navigationsleiste -->
+  <div class="sidebar">
+    <nav>
+      <ul class="nav">
+        <li><a href="index.html" class="nav-link" data-page="index">Start</a></li>
+        <li><a href="demo.html" class="nav-link" data-page="demo">Demo</a></li>
+        <li><a href="risks.html" class="nav-link" data-page="risks">Risiken</a></li>
+        <li><a href="threats.html" class="nav-link" data-page="threats">Bedrohungen</a></li>
+        <li><a href="steps.html" class="nav-link" data-page="steps">Schritte</a></li>
+        <li><a href="protection.html" class="nav-link" data-page="protection">Schutz</a></li>
+        <li><a href="examples.html" class="nav-link" data-page="examples">Beispiele</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Hauptinhalt -->
+  <div class="main-content">
+    <div class="language-switcher">
+      <button id="lang-de" class="active" onclick="setLanguage('de')">Deutsch</button>
+      <button id="lang-en" onclick="setLanguage('en')">English</button>
+    </div>
+
+    <div class="layout">
+      <a class="back-link" href="demo.html" data-i18n="back">← Zurück</a>
+
+      <div class="hero">
+        <div class="pill"><span data-i18n="pill">📋 Beispiele</span></div>
+        <p class="tagline" data-i18n="intro">Hier findest du konkrete Beispiele, wie Phishing-Angriffe in ILIAS aussehen könnten. Diese sind fiktiv und dienen nur zur Schulung.</p>
+      </div>
+
+      <div class="detail-section">
+        <h3 data-i18n="example1_title">Beispiel 1: Fake-Login-Seite</h3>
+        <p data-i18n="example1_desc">Eine E-Mail lockt mit "Dringende ILIAS-Änderung" und führt zu einer gefälschten Login-Seite, die deine Daten stiehlt.</p>
+        <button class="btn btn-primary" onclick="alert('Simulation: Daten würden gestohlen werden!')" data-i18n="example1_btn">Fake-Login simulieren</button>
+      </div>
+
+      <div class="detail-section">
+        <h3 data-i18n="example2_title">Beispiel 2: Gefälschter Download-Link</h3>
+        <p data-i18n="example2_desc">Eine Nachricht verspricht "Neue Kursmaterialien" mit einem Link, der Malware herunterlädt.</p>
+        <button class="btn btn-warning" onclick="alert('Vorsicht: Kein echter Download!')" data-i18n="example2_btn">Link klicken (simuliert)</button>
+      </div>
+
+      <div class="detail-section">
+        <h3 data-i18n="example3_title">Beispiel 3: Social Engineering</h3>
+        <p data-i18n="example3_desc">Ein Anruf oder Chat behauptet, vom IT-Support zu sein, und bittet um Passwort-Reset.</p>
+        <p data-i18n="example3_tip"><em>Tipp:</em> Verifiziere immer den Absender!</p>
+      </div>
+
+      <div class="grid-card">
+        <div class="pill"><span data-i18n="pill-takeaway">💡 Fazit</span></div>
+        <h2 data-i18n="takeaway_title">Warum diese Beispiele wichtig sind</h2>
+        <ul>
+          <li data-i18n="takeaway1">Phishing-Angriffe sind raffiniert und täuschen oft vor, vertrauenswürdig zu sein.</li>
+          <li data-i18n="takeaway2">Immer Links und Absender überprüfen, bevor du klickst oder Daten eingibst.</li>
+          <li data-i18n="takeaway3">MFA bietet zusätzlichen Schutz, selbst wenn ein Angriff erfolgreich ist.</li>
+        </ul>
+      </div>
+
+      <div class="hero" style="margin-top: 40px; text-align: center;">
+        <a class="cta" href="protection.html"><span data-i18n="cta">Schutzmaßnahmen</span> →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/jquery.js"></script>
+  <script src="js/interactive.js"></script>
+  <script>
+    const translations = {
+      de: {
+        intro: 'Hier findest du konkrete Beispiele, wie Phishing-Angriffe in ILIAS aussehen könnten. Diese sind fiktiv und dienen nur zur Schulung.',
+        pill: '📋 Beispiele',
+        example1_title: 'Beispiel 1: Fake-Login-Seite',
+        example1_desc: 'Eine E-Mail lockt mit "Dringende ILIAS-Änderung" und führt zu einer gefälschten Login-Seite, die deine Daten stiehlt.',
+        example1_btn: 'Fake-Login simulieren',
+        example2_title: 'Beispiel 2: Gefälschter Download-Link',
+        example2_desc: 'Eine Nachricht verspricht "Neue Kursmaterialien" mit einem Link, der Malware herunterlädt.',
+        example2_btn: 'Link klicken (simuliert)',
+        example3_title: 'Beispiel 3: Social Engineering',
+        example3_desc: 'Ein Anruf oder Chat behauptet, vom IT-Support zu sein, und bittet um Passwort-Reset.',
+        example3_tip: '<em>Tipp:</em> Verifiziere immer den Absender!',
+        'pill-takeaway': '💡 Fazit',
+        takeaway_title: 'Warum diese Beispiele wichtig sind',
+        takeaway1: 'Phishing-Angriffe sind raffiniert und täuschen oft vor, vertrauenswürdig zu sein.',
+        takeaway2: 'Immer Links und Absender überprüfen, bevor du klickst oder Daten eingibst.',
+        takeaway3: 'MFA bietet zusätzlichen Schutz, selbst wenn ein Angriff erfolgreich ist.',
+        cta: 'Schutzmaßnahmen',
+        back: '← Zurück'
+      },
+      en: {
+        intro: 'Here you will find concrete examples of what phishing attacks in ILIAS could look like. These are fictional and serve only for training.',
+        pill: '📋 Examples',
+        example1_title: 'Example 1: Fake Login Page',
+        example1_desc: 'An email lures with "Urgent ILIAS change" and leads to a fake login page that steals your data.',
+        example1_btn: 'Simulate Fake Login',
+        example2_title: 'Example 2: Forged Download Link',
+        example2_desc: 'A message promises "New course materials" with a link that downloads malware.',
+        example2_btn: 'Click link (simulated)',
+        example3_title: 'Example 3: Social Engineering',
+        example3_desc: 'A call or chat claims to be from IT support and asks for password reset.',
+        example3_tip: '<em>Tip:</em> Always verify the sender!',
+        'pill-takeaway': '💡 Conclusion',
+        takeaway_title: 'Why These Examples Matter',
+        takeaway1: 'Phishing attacks are sophisticated and often pretend to be trustworthy.',
+        takeaway2: 'Always check links and senders before clicking or entering data.',
+        takeaway3: 'MFA provides additional protection, even if an attack succeeds.',
+        cta: 'Protection Measures',
+        back: '← Back'
+      }
+    };
+
+    function setLanguage(lang) {
+      localStorage.setItem('language', lang);
+      document.documentElement.lang = lang;
+      document.getElementById('html').setAttribute('lang', lang);
+
+      // Update all elements with data-i18n attribute
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+
+      // Update language buttons
+      document.getElementById('lang-de').classList.toggle('active', lang === 'de');
+      document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+    }
+
+    // Initialize language on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('language') || 'de';
+      setLanguage(savedLang);
+    });
+  </script>
+</body>
+</html>

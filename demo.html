@@ -9,7 +9,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Phishing-Test Hinweis</title>
+  <link rel="stylesheet" href="css/patternfly.min.css">
+  <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/demo_styles.css">
+  <link rel="stylesheet" href="css/sidebar.css">
   <style>
     .language-switcher {
       position: fixed;
@@ -18,40 +21,70 @@
       z-index: 1000;
     }
     .language-switcher button {
-      background: #007bff;
-      color: white;
-      border: none;
+      background: #1e293b; /* Dunkel für dunklen Hintergrund */
+      color: #e2e8f0; /* Hell */
+      border: 1px solid #475569;
       padding: 8px 12px;
       margin-left: 5px;
       border-radius: 4px;
       cursor: pointer;
       font-size: 14px;
+      min-width: 80px;
     }
     .language-switcher button:hover {
-      background: #0056b3;
+      background: #334155;
     }
     .language-switcher button.active {
-      background: #28a745;
+      background: #22d3ee; /* Cyan accent */
+      color: #0f172a;
     }
   </style>
 </head>
-<body>
-  <div class="language-switcher">
-    <button id="lang-de" class="active" onclick="setLanguage('de')">Deutsch</button>
-    <button id="lang-en" onclick="setLanguage('en')">English</button>
-  </div>
-  
-  <div class="card" role="alert" aria-live="assertive">
-    <div class="badge">⚠️ <span data-i18n="warning">Phishing-Test</span></div>
-    <h1 data-i18n="title">Dies war ein Phishing-Test.</h1>
-    <p data-i18n="desc1">Keine Sorge, dies war nur eine Simulation. Bitte beachten Sie die Hinweise zur IT-Sicherheit und melden Sie verdächtige E-Mails sofort.</p>
-    <p data-i18n="desc2">Öffnen Sie keine unbekannten Anhänge, klicken Sie nicht auf ungeprüfte Links und verifizieren Sie Absender, bevor Sie sensible Daten teilen.</p>
-    <div class="actions">
-      <button class="btn btn-primary" onclick="window.location.href='mfa-info.php'"><span data-i18n="btn">Bedrohungen</span></button>
-    </div>
-    <div class="footer-note" data-i18n="footer">Drücken Sie auf "Bedrohungen", um mehr über Phishing-Bedrohungen und Lösungen dafür zu erfahren.</div>
+<body class="dark-mode">
+  <!-- Hamburger-Menü Icon -->
+  <button class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- Linke Navigationsleiste -->
+  <div class="sidebar">
+    <nav>
+      <ul class="nav">
+        <li><a href="index.html" class="nav-link" data-page="index">Start</a></li>
+        <li><a href="demo.html" class="nav-link" data-page="demo">Demo</a></li>
+        <li><a href="risks.html" class="nav-link" data-page="risks">Risiken</a></li>
+        <li><a href="threats.html" class="nav-link" data-page="threats">Bedrohungen</a></li>
+        <li><a href="steps.html" class="nav-link" data-page="steps">Schritte</a></li>
+        <li><a href="protection.html" class="nav-link" data-page="protection">Schutz</a></li>
+        <li><a href="examples.html" class="nav-link" data-page="examples">Beispiele</a></li>
+      </ul>
+    </nav>
   </div>
 
+  <!-- Hauptinhalt -->
+  <div class="main-content">
+    <div class="language-switcher">
+      <button id="lang-de" class="active" onclick="setLanguage('de')">Deutsch</button>
+      <button id="lang-en" onclick="setLanguage('en')">English</button>
+    </div>
+
+    <div class="card" role="alert" aria-live="assertive">
+      <div class="badge">⚠️ <span data-i18n="warning">Phishing-Test</span></div>
+      <h1 data-i18n="title">Dies war ein Phishing-Test.</h1>
+      <p data-i18n="desc1">Keine Sorge, dies war nur eine Simulation. Bitte beachten Sie die Hinweise zur IT-Sicherheit und melden Sie verdächtige E-Mails sofort.</p>
+      <p data-i18n="desc2">Öffnen Sie keine unbekannten Anhänge, klicken Sie nicht auf ungeprüfte Links und verifizieren Sie Absender, bevor Sie sensible Daten teilen.</p>
+      <div class="actions">
+        <button class="btn btn-primary" onclick="window.location.href='threats.html'"><span data-i18n="btn">Bedrohungen</span></button>
+      </div>
+      <div class="footer-note" data-i18n="footer">Drücken Sie auf "Bedrohungen", um mehr über Phishing-Bedrohungen und Lösungen dafür zu erfahren.</div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/jquery.js"></script>
+  <script src="js/interactive.js"></script>
   <script>
     const translations = {
       de: {
@@ -76,7 +109,7 @@
       localStorage.setItem('language', lang);
       document.documentElement.lang = lang;
       document.getElementById('html').setAttribute('lang', lang);
-      
+
       // Update all elements with data-i18n attribute
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
@@ -84,7 +117,7 @@
           el.textContent = translations[lang][key];
         }
       });
-      
+
       // Update language buttons
       document.getElementById('lang-de').classList.toggle('active', lang === 'de');
       document.getElementById('lang-en').classList.toggle('active', lang === 'en');
