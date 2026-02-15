@@ -73,7 +73,7 @@ p { margin: 0 0 14px; line-height: 1.6; color: rgba(233,239,247,0.9); }
 .footer-note { margin-top: 18px; font-size: 0.9rem; color: rgba(233,239,247,0.75); }
 
 /* Threats page layout */
-.layout { width: min(1100px, 96vw); display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.layout { width: min(1400px, 96vw); display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
 .hero {
 	grid-column: 1 / -1;
 	background: linear-gradient(135deg, rgba(34,211,238,0.12), rgba(249,115,22,0.12));

@@ -84,6 +84,7 @@
       margin-top: 0;
       color: #28a745;
     }
+    .checklist p, .checklist ul, .checklist li { color: #e2e8f0; }
     .checklist ul {
       margin: 0;
       padding-left: 20px;
@@ -103,6 +104,7 @@
       margin-top: 0;
       color: #ff6d00;
     }
+    .warning-box p, .warning-box li { color: #e2e8f0; }
     .timeline {
       position: relative;
       padding-left: 30px;
@@ -135,6 +137,36 @@
     .grid-card {
       background: #1b3a5c;
       color: white;
+      border-left: 4px solid #ffc107;
+      padding: 25px;
+      margin: 25px 0;
+      border-radius: 4px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    .grid-card .pill {
+      margin-bottom: 12px;
+    }
+    .grid-card h2 {
+      margin-top: 0;
+      color: #ffc107;
+      font-size: 1.25rem;
+    }
+    .grid-card p, .grid-card ul { color: #f8fafc; }
+    /* checklist inputs */
+    .grid-card.checklist-card ul { list-style: none; padding-left: 0; }
+    .grid-card.checklist-card label { display: flex; align-items: center; gap: 10px; padding: 6px 0; }
+    .grid-card.checklist-card .check-item { width: 18px; height: 18px; accent-color: #28a745; }
+    /* Layout grid for steps and side cards */
+    .content-grid { display: block; grid-column: 1 / -1; }
+    @media (min-width: 900px) {
+      .content-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; }
+      .content-grid .step-1 { grid-column: 1; }
+      .content-grid .step-2 { grid-column: 2; }
+      .content-grid .step-3 { grid-column: 3; }
+      /* second row: place step-4, checklist and congrats side-by-side */
+      .content-grid .step-4 { grid-column: 1; }
+      .content-grid .checklist-card { grid-column: 2; }
+      .content-grid .congrats-card { grid-column: 3; }
     }
   </style>
 </head>
@@ -153,7 +185,8 @@
       <p class="tagline" data-i18n="subtitle">Mit dieser Anleitung aktivieren Sie MFA in wenigen Minuten und erhöhen die Sicherheit Ihres Kontos dramatisch.</p>
     </div>
 
-    <div class="step-card">
+    <div class="content-grid">
+    <div class="step-card step-1">
       <h3><span class="step-number">1</span><span data-i18n="step1-title">MFA im Konto aktivieren (Authenticator-App oder Sicherheitsschlüssel bevorzugt)</span></h3>
       <p data-i18n="step1-intro">Der erste Schritt ist, MFA für Ihr Konto zu aktivieren:</p>
       
@@ -181,7 +214,7 @@
       </div>
     </div>
 
-    <div class="step-card">
+    <div class="step-card step-2">
       <h3><span class="step-number">2</span><span data-i18n="step2-title">Backup-Codes sicher ablegen (kein E-Mail-Postfach)</span></h3>
       <p data-i18n="step2-desc">Die Backup-Codes sind Ihr Notfall-Plan. Wenn Sie Ihr MFA-Gerät verlieren oder es nicht funktioniert, können Sie sich damit noch anmelden. Deshalb müssen sie sicher aufbewahrt werden:</p>
       
@@ -206,7 +239,7 @@
       </div>
     </div>
 
-    <div class="step-card">
+    <div class="step-card step-3">
       <h3><span class="step-number">3</span><span data-i18n="step3-title">Passwortmanager nutzen und lange, einzigartige Passwörter wählen</span></h3>
       <p data-i18n="step3-desc">MFA schützt vor gestohlenen Passwörtern, aber eine zusätzliche Schicht von starken Passwörtern ist immer noch wichtig:</p>
       
@@ -230,7 +263,7 @@
       </div>
     </div>
 
-    <div class="step-card">
+    <div class="step-card step-4">
       <h3><span class="step-number">4</span><span data-i18n="step4-title">Verdächtige Login-Prompts niemals blind bestätigen</span></h3>
       <p data-i18n="step4-desc">Jetzt, wo Sie MFA aktiviert haben, erhalten Sie Benachrichtigungen bei Anmeldeversuchen. Das ist Ihr Sicherheitsschutzschild – nutzen Sie es richtig:</p>
       
@@ -250,39 +283,30 @@
       </div>
     </div>
 
-    <div class="grid-card">
-      <div class="pill"><span data-i18n="pill-checklist">✔️ Checkliste</span></div>
-      <h2 data-i18n="checklist-title">Habe ich alles getan?</h2>
-      <p data-i18n="checklist-intro">Gehen Sie diese Checkliste durch, um sicherzustellen, dass Ihre Kontosicherheit gestärkt ist:</p>
-      <ul>
-        <li data-i18n="check1">☐ MFA für mein Hauptkonto aktiviert (E-Mail, ILIAS, Cloud, Banking)</li>
-        <li data-i18n="check2">☐ Die Methode ist Sicherheitsschlüssel, Passkey oder Authenticator-App (nicht SMS)</li>
-        <li data-i18n="check3">☐ Backup-Codes ausgedruckt und sicher gelegt</li>
-        <li data-i18n="check4">☐ Passwortmanager installiert und konfiguriert</li>
-        <li data-i18n="check5">☐ Alle wichtigen Konten mit langen, einzigartigen Passwörtern neu belegt</li>
-        <li data-i18n="check6">☐ MFA-Benachrichtigungen verstanden und getestet</li>
-        <li data-i18n="check7">☐ Kontakte informiert: Diese MFA-Methode funktioniert nur mit meinem Gerät</li>
-      </ul>
-    </div>
+    <div class="grid-card checklist-card">
+        <h2 data-i18n="checklist-title">Kurzer Check: Habe ich alles getan?</h2>
+        <p data-i18n="checklist-intro">Gehen Sie diese Checkliste durch, um sicherzustellen, dass Ihre Kontosicherheit gestärkt ist:</p>
+        <ul>
+          <li><label><input type="checkbox" class="check-item" data-check="check1"><span data-i18n="check1">MFA für mein Hauptkonto aktiviert (E-Mail, ILIAS, Cloud, Banking)</span></label></li>
+          <li><label><input type="checkbox" class="check-item" data-check="check2"><span data-i18n="check2">Die Methode ist Sicherheitsschlüssel, Passkey oder Authenticator-App (nicht SMS)</span></label></li>
+          <li><label><input type="checkbox" class="check-item" data-check="check3"><span data-i18n="check3">Backup-Codes ausgedruckt und sicher gelegt</span></label></li>
+          <li><label><input type="checkbox" class="check-item" data-check="check4"><span data-i18n="check4">Passwortmanager installiert und konfiguriert</span></label></li>
+          <li><label><input type="checkbox" class="check-item" data-check="check5"><span data-i18n="check5">Alle wichtigen Konten mit langen, einzigartigen Passwörtern neu belegt</span></label></li>
+          <li><label><input type="checkbox" class="check-item" data-check="check6"><span data-i18n="check6">MFA-Benachrichtigungen verstanden und getestet</span></label></li>
+          <li><label><input type="checkbox" class="check-item" data-check="check7"><span data-i18n="check7">Kontakte informiert: Diese MFA-Methode funktioniert nur mit meinem Gerät</span></label></li>
+        </ul>
+      </div>
 
-    <div class="step-card" style="background: #1b3a5c; color: white; border-left-color: #4caf50;">
-      <h3 data-i18n="congrats-title">🎉 Herzlichen Glückwunsch!</h3>
-      <p data-i18n="congrats-desc">Sie haben die wichtigsten Schritte für Kontosicherheit unternommen. Sie sind jetzt vor den meisten automatisierten Angriffsszenarien geschützt und erhöhen damit auch die Sicherheit von Organisationen und Netzwerken, in denen Sie tätig sind.</p>
-      <p data-i18n="congrats-final">Denken Sie daran: Das ist nicht einmalig – überprüfen Sie gelegentlich Ihre MFA-Einstellungen und aktualisieren Sie Ihre Backup-Codes, wenn Sie neue Geräte bekommen.</p>
-    </div>
+      <div class="step-card congrats-card" style="background: #1b3a5c; color: white; border-left-color: #4caf50;">
+        <h3 data-i18n="congrats-title">🎉 Herzlichen Glückwunsch!</h3>
+        <p data-i18n="congrats-desc">Sie haben die wichtigsten Schritte für Kontosicherheit unternommen. Sie sind jetzt vor den meisten automatisierten Angriffsszenarien geschützt und erhöhen damit auch die Sicherheit von Organisationen und Netzwerken, in denen Sie tätig sind.</p>
+        <p data-i18n="congrats-final">Denken Sie daran: Das ist nicht einmalig – überprüfen Sie gelegentlich Ihre MFA-Einstellungen und aktualisieren Sie Ihre Backup-Codes, wenn Sie neue Geräte bekommen.</p>
+      </div>
 
+    </div> <!-- .content-grid -->
     <div class="hero" style="margin-top: 40px; text-align: center;">
       <a class="cta" href="https://login.hs-heilbronn.de"><span data-i18n="cta">Jetzt zum Login und MFA aktivieren</span> →</a>
     </div>
-    <div class="grid-card" style="margin-top:18px;">
-      <div class="pill">📝 Wichtige Hinweise</div>
-      <ul>
-        <li>Backup-Codes niemals unverschlüsselt in E-Mails oder freigegebenen Cloud-Ordnern speichern.</li>
-        <li>Bewahren Sie mindestens eine alternative Wiederherstellungs-Methode sicher auf (z. B. Backup-Codes im Safe oder ein zweites Gerät/E-Authenticator).</li>
-        <li>Achten Sie auf MFA-Fatigue: Bestätigen Sie niemals eine MFA-Anfrage, wenn Sie sich nicht gerade anmelden.</li>
-      </ul>
-    </div>
-  </div>
 
   <script>
     const translations = {
@@ -343,16 +367,15 @@
         step4_apathy_desc: 'Ein böser Trick ist, jemanden mit vielen Notifications zu bombardieren – und zu hoffen, dass er/sie irgendwann einfach auf „Bestätigen" klickt, ohne nachzudenken (MFA Fatigue). Regel: Wenn Sie nicht gerade versuchen, sich anzumelden, lehnen Sie ab – immer.',
         step4_apathy_rule: 'Regel: Wenn Sie nicht gerade versuchen, sich anzumelden, lehnen Sie ab – immer.',
         
-        pill_checklist: '✔️ Checkliste',
-        checklist_title: 'Habe ich alles getan?',
+        checklist_title: 'Kurzer Check: Habe ich alles getan?',
         checklist_intro: 'Gehen Sie diese Checkliste durch, um sicherzustellen, dass Ihre Kontosicherheit gestärkt ist:',
-        check1: '☐ MFA für mein Hauptkonto aktiviert (E-Mail, ILIAS, Cloud, Banking)',
-        check2: '☐ Die Methode ist Sicherheitsschlüssel, Passkey oder Authenticator-App (nicht SMS)',
-        check3: '☐ Backup-Codes ausgedruckt und sicher gelegt',
-        check4: '☐ Passwortmanager installiert und konfiguriert',
-        check5: '☐ Alle wichtigen Konten mit langen, einzigartigen Passwörtern neu belegt',
-        check6: '☐ MFA-Benachrichtigungen verstanden und getestet',
-        check7: '☐ Kontakte informiert: Diese MFA-Methode funktioniert nur mit meinem Gerät',
+        check1: 'MFA für mein Hauptkonto aktiviert (E-Mail, ILIAS, Cloud, Banking)',
+        check2: 'Die Methode ist Sicherheitsschlüssel, Passkey oder Authenticator-App (nicht SMS)',
+        check3: 'Backup-Codes ausgedruckt und sicher gelegt',
+        check4: 'Passwortmanager installiert und konfiguriert',
+        check5: 'Alle wichtigen Konten mit langen, einzigartigen Passwörtern neu belegt',
+        check6: 'MFA-Benachrichtigungen verstanden und getestet',
+        check7: 'Kontakte informiert: Diese MFA-Methode funktioniert nur mit meinem Gerät',
         
         congrats_title: '🎉 Herzlichen Glückwunsch!',
         congrats_desc: 'Sie haben die wichtigsten Schritte für Kontosicherheit unternommen. Sie sind jetzt vor den meisten automatisierten Angriffsszenarien geschützt und erhöhen damit auch die Sicherheit von Organisationen und Netzwerken, in denen Sie tätig sind.',
@@ -417,16 +440,15 @@
         step4_apathy_desc: 'A nasty trick is to bombard someone with many notifications – hoping they eventually just click "confirm" without thinking (MFA fatigue). Rule: If you\'re not currently trying to log in, always deny.',
         step4_apathy_rule: 'Rule: If you\'re not currently trying to log in, always deny.',
         
-        pill_checklist: '✔️ Checklist',
-        checklist_title: 'Have I done everything?',
+        checklist_title: 'Quick Check: Did I do everything?',
         checklist_intro: 'Go through this checklist to ensure your account security is enhanced:',
-        check1: '☐ MFA enabled for my main account (email, ILIAS, cloud, banking)',
-        check2: '☐ The method is security key, passkey or authenticator app (not SMS)',
-        check3: '☐ Backup codes printed and stored safely',
-        check4: '☐ Password manager installed and configured',
-        check5: '☐ All important accounts updated with long, unique passwords',
-        check6: '☐ MFA notifications understood and tested',
-        check7: '☐ Informed contacts: This MFA method only works with my device',
+        check1: 'MFA enabled for my main account (email, ILIAS, cloud, banking)',
+        check2: 'The method is security key, passkey or authenticator app (not SMS)',
+        check3: 'Backup codes printed and stored safely',
+        check4: 'Password manager installed and configured',
+        check5: 'All important accounts updated with long, unique passwords',
+        check6: 'MFA notifications understood and tested',
+        check7: 'Informed contacts: This MFA method only works with my device',
         
         congrats_title: '🎉 Congratulations!',
         congrats_desc: 'You have taken the most important steps for account security. You are now protected against most automated attack scenarios and also increase the security of organizations and networks in which you operate.',
@@ -455,6 +477,15 @@
     window.addEventListener('DOMContentLoaded', () => {
       const savedLang = localStorage.getItem('language') || 'de';
       setLanguage(savedLang);
+      // initialize checklist checkbox state from localStorage
+      document.querySelectorAll('.check-item').forEach(cb => {
+        const key = cb.dataset.check;
+        const val = localStorage.getItem('check_' + key);
+        if (val === '1') cb.checked = true;
+        cb.addEventListener('change', () => {
+          localStorage.setItem('check_' + key, cb.checked ? '1' : '0');
+        });
+      });
     });
   </script>
 

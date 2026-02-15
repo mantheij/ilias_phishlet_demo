@@ -61,7 +61,21 @@
     .grid-card {
       background: #1b3a5c;
       color: white;
+      border-left: 4px solid #dc3545;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
     }
+    .grid-card .pill {
+      margin-bottom: 12px;
+    }
+    .grid-card h2 {
+      margin-top: 0;
+      color: #e2e8f0;
+      font-size: 1.25rem;
+    }
+    .grid-card p, .grid-card ul { color: #dbeafe; }
   </style>
 </head>
 <body class="dark-mode">
@@ -113,10 +127,6 @@
         <li data-i18n="takeaway4">MFA ist die einzige praktische Lösung, um gegen diese automatisierten Angriffe zu schützen.</li>
       </ul>
     </div>
-    <div class="grid-card" style="margin-top:18px;">
-      <div class="pill">Wichtige Hürden für den Angreifer</div>
-      <p>Angreifer nutzen Datenleaks und Phishing automatisiert. MFA macht massenhafte Kontoübernahmen unpraktisch und reduziert nachweislich das Risiko erheblich.</p>
-    </div>
 
     <div class="hero" style="margin-top: 40px; text-align: center;">
       <a class="cta" href="https://login.hs-heilbronn.de"><span data-i18n="cta">MFA jetzt aktivieren</span> →</a>
@@ -147,7 +157,7 @@
         risk4_detail: 'Viele organisationen haben Standardpasswörter, die nicht geändert werden, oder schwache unternehmensweite Konventionen (z.B. Vorname + Geburtsjahr). Angreifer versuchen automatisiert bekannte Passwörter und Muster. Wenn sie Glück haben, knacken sie damit tausende Konten gleichzeitig. Dann können sie sich lateral im Unternehmensnetz bewegen – von Konto zu Konto, bis sie kritische Systeme oder Daten finden.',
         risk4_example: 'Beispiel: Ein Firmware-Router hat das Standard-Admin-Passwort „admin123". Der Angreifer loggt sich ein, stellt sich auf den DHCP-Server und übernimmt das gesamte Netzwerk – um dann in Datenbanken und Cloud-Systeme einzudringen.',
         
-        pill_takeaway: '💡 Fazit',
+        pill_takeaway: 'Kurzgefasst',
         takeaway_title: 'Warum diese Risiken existieren',
         takeaway1: 'Das Passwort allein ist zu unsicher – es kann gestohlen, geleakt oder erraten werden.',
         takeaway2: 'Angreifer arbeiten automatisiert in großem Maßstab – ein einzelnes Passwort öffnet hunderte oder tausende Türen.',
@@ -178,7 +188,7 @@
         risk4_detail: 'Many organizations have default passwords that are not changed, or weak company-wide conventions (e.g., first name + birth year). Attackers automatically try known passwords and patterns. If they\'re lucky, they crack thousands of accounts simultaneously. They can then move laterally through the corporate network – from account to account, until they find critical systems or data.',
         risk4_example: 'Example: A firmware router has the standard admin password "admin123". The attacker logs in, sets up on the DHCP server and takes over the entire network – only to then penetrate databases and cloud systems.',
         
-        pill_takeaway: '💡 Conclusion',
+        pill_takeaway: 'Key takeaways',
         takeaway_title: 'Why these risks exist',
         takeaway1: 'The password alone is too insecure – it can be stolen, leaked or guessed.',
         takeaway2: 'Attackers work automatically on a large scale – a single password opens hundreds or thousands of doors.',

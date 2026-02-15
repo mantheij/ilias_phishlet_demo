@@ -78,6 +78,29 @@
     .grid-card {
       background: #1b3a5c;
       color: white;
+      border-left: 4px solid #28a745;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    }
+    .grid-card h2, .grid-card h3 { margin-top: 0; color: #28a745; }
+    /* protection grid layout for cards */
+    .protection-grid { display: block; }
+    @media (min-width: 900px) {
+      /* 3x3 layout: top row = risk | mfa | spacer; row2 = rec | prov | spacer; row3 = spacer | spacer | cta */
+      .protection-grid { display: grid; grid-template-columns: 1.35fr 1.35fr 0.6fr; grid-template-rows: auto auto auto; gap: 20px; align-items: start; grid-auto-rows: minmax(120px, auto); }
+      .protection-grid .risk-card { grid-column: 1; grid-row: 1; }
+      .protection-grid .mfa-card { grid-column: 2 / span 33; grid-row: 1; }
+      .protection-grid .rec-card { grid-column: 1; grid-row: 3; }
+      .protection-grid .prov-card { grid-column: 2; grid-row: 3; }
+      .protection-grid .cta-card { grid-column: 3; grid-row: 3; display:flex; align-items:center; justify-content:center; }
+      .protection-grid .mfa-card .mfa-types { margin-bottom: 0; }
+      /* remove outer margins on direct grid children so equal-height works */
+      .protection-grid > .grid-card { margin: 0; height: 100%; }
+      /* Recommendation card: ensure consistent heading and body colors */
+      .protection-grid .rec-card h2 { color: #28a745; }
+      .protection-grid .rec-card, .protection-grid .rec-card p, .protection-grid .rec-card ul, .protection-grid .rec-card li { color: #e2e8f0; }
     }
   </style>
 </head>
@@ -114,17 +137,17 @@
       <p data-i18n="protection3_example"><strong>Beispiel:</strong> Ihr Konto wird von einem Server in Russland aus zugegriffen, während Sie gerade in München sind. MFA zeigt Ihnen die verdächtige Aktivität. Sie erkennen sofort, dass Sie nicht eingeloggt sind und blockieren den Zugriff.</p>
     </div>
 
-    <div class="detail-section">
-      <h3 data-i18n="protection4_title">Risiko von Kontoübernahmen sinkt drastisch (laut Studien um >90%)</h3>
-      <p data-i18n="protection4_detail">Studien von Google, Microsoft und anderen Sicherheitsunternehmen zeigen einheitlich: MFA reduziert das Risiko von erfolgreichen Account-Übernahmen um über 90 %. Das ist nicht weil MFA undurchdringlich ist, sondern weil Angreifer massenhaft operieren – und der zusätzliche Aufwand für den zweiten Faktor ist zu groß. Die Angreifer wechseln zu einfacheren Zielen.</p>
-      <p data-i18n="protection4_detail2">Dieser massive Schutz ist verfügbar – Sie müssen nur MFA aktivieren.</p>
-    </div>
+    
 
-    <div class="grid-card">
-      <div class="pill"><span data-i18n="pill_types">🔐 MFA-Arten</span></div>
+    <div class="protection-grid">
+      <div class="grid-card risk-card">
+        <h3 data-i18n="protection4_title">Risiko von Kontoübernahmen sinkt drastisch (laut Studien um &gt;90%)</h3>
+        <p data-i18n="protection4_detail">Studien von Google, Microsoft und anderen Sicherheitsunternehmen zeigen einheitlich: MFA reduziert das Risiko von erfolgreichen Account-Übernahmen um über 90 %. Das ist nicht weil MFA undurchdringlich ist, sondern weil Angreifer massenhaft operieren – und der zusätzliche Aufwand für den zweiten Faktor ist zu groß. Die Angreifer wechseln zu einfacheren Zielen.</p>
+        <p data-i18n="protection4_detail2">Dieser massive Schutz ist verfügbar – Sie müssen nur MFA aktivieren.</p>
+      </div>
+      <div class="grid-card mfa-card">
       <h2 data-i18n="types_title">Verschiedene zweite Faktoren</h2>
       <p data-i18n="types_intro">Je nach Dienst können unterschiedliche MFA-Methoden verwendet werden:</p>
-
       <div class="mfa-types">
         <div class="mfa-type">
           <h4 data-i18n="type1_name">Authenticator-App</h4>
@@ -153,24 +176,22 @@
       </div>
     </div>
 
-    <div class="grid-card">
-      <div class="pill"><span data-i18n="pill_recommendation">⭐ Empfehlung</span></div>
-      <h2 data-i18n="recommendation_title">Beste Praktiken</h2>
-      <ul>
-        <li data-i18n="rec1"><strong>Preferred (am sichersten):</strong> Sicherheitsschlüssel oder Passkeys – können nicht gehackt, verloren oder gefälscht werden.</li>
-        <li data-i18n="rec2"><strong>Sehr gut:</strong> Authenticator-App – zeitbasiert, auf Ihrem Gerät, nicht abhängig von SMS-Infrastruktur.</li>
-        <li data-i18n="rec3"><strong>Akzeptabel:</strong> Push-Benachrichtigungen – müssen Sie aktiv bestätigen, aber manchmal für mehrere kritische Konten zugleich anstrengend.</li>
-        <li data-i18n="rec4"><strong>Nicht empfohlen:</strong> SMS – anfällig für SIM-Swapping und Abfangung. Nur ein Fall für Dienste, die keine besseren Optionen haben.</li>
-        <li data-i18n="rec5"><strong>Haben Sie mehrere Methoden:</strong> Backup-Codes an einem sicheren Ort ablegen (Safe, Tresor, nicht ins Postfach!), falls Sie Ihr Hauptgerät verlieren.</li>
-      </ul>
-    </div>
+      <div class="grid-card rec-card">
+        <h2 data-i18n="recommendation_title">Beste Praktiken</h2>
+        <ul>
+          <li data-i18n="rec1"><strong>Preferred (am sichersten):</strong> Sicherheitsschlüssel oder Passkeys – können nicht gehackt, verloren oder gefälscht werden.</li>
+          <li data-i18n="rec2"><strong>Sehr gut:</strong> Authenticator-App – zeitbasiert, auf Ihrem Gerät, nicht abhängig von SMS-Infrastruktur.</li>
+          <li data-i18n="rec3"><strong>Akzeptabel:</strong> Push-Benachrichtigungen – müssen Sie aktiv bestätigen, aber manchmal für mehrere kritische Konten zugleich anstrengend.</li>
+          <li data-i18n="rec4"><strong>Nicht empfohlen:</strong> SMS – anfällig für SIM-Swapping und Abfangung. Nur ein Fall für Dienste, die keine besseren Optionen haben.</li>
+          <li data-i18n="rec5"><strong>Haben Sie mehrere Methoden:</strong> Backup-Codes an einem sicheren Ort ablegen (Safe, Tresor, nicht ins Postfach!), falls Sie Ihr Hauptgerät verlieren.</li>
+        </ul>
+      </div>
 
-    <div class="grid-card">
-      <div class="pill"><span>🔑 Anbieter</span></div>
-      <h2>Bekannte Anbieter von Passkeys und Sicherheitsschlüsseln</h2>
-      <p>Bekannte Hersteller und Projekte für Passkeys bzw. Hardware-Sicherheitsschlüssel sind unter anderem Yubico (YubiKey), SoloKeys, Nitrokey, Feitian und Thetis.</p>
+      <div class="grid-card prov-card">
+        <h2 data-i18n="providers_title">Bekannte Anbieter von Passkeys und Sicherheitsschlüsseln</h2>
+        <p data-i18n="providers_detail">Bekannte Hersteller und Projekte für Passkeys bzw. Hardware-Sicherheitsschlüssel sind unter anderem Yubico (YubiKey), SoloKeys, Nitrokey, Feitian und Thetis.</p>
 
-      <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:12px">
+        <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:12px">
         <a href="https://www.google.com" target="_blank" rel="noopener noreferrer" title="Google"><img src="images/providers/google.svg" alt="Google" style="height:40px"></a>
         <a href="https://www.apple.com" target="_blank" rel="noopener noreferrer" title="Apple"><img src="images/providers/apple.svg" alt="Apple" style="height:40px"></a>
         <a href="https://aws.amazon.com" target="_blank" rel="noopener noreferrer" title="AWS"><img src="images/providers/aws.svg" alt="AWS" style="height:40px"></a>
@@ -178,12 +199,15 @@
         <a href="https://www.yubico.com" target="_blank" rel="noopener noreferrer" title="Yubico"><img src="images/providers/yubico.svg" alt="Yubico" style="height:40px"></a>
       </div>
 
-      <p style="margin-top:12px">Detaillierte Produktinformationen und Modellvergleiche finden Sie beispielsweise bei <a href="https://www.yubico.com" target="_blank" rel="noopener noreferrer">Yubico</a>.</p>
+      <p style="margin-top:12px"><span data-i18n="providers_more">Detaillierte Produktinformationen und Modellvergleiche finden Sie beispielsweise bei</span> <a href="https://www.yubico.com" target="_blank" rel="noopener noreferrer">Yubico</a>.</p>
+      <p style="margin-top:12px"><span data-i18n="bsi_info">Mehr Informationen zu Passkeys und wie sie funktionieren finden Sie beim BSI:</span> <a href="https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Accountschutz/Passkeys/passkeys-anmelden-ohne-passwort_node.html" target="_blank" rel="noopener noreferrer">BSI — Passkeys: Anmelden ohne Passwort</a>.</p>
     </div>
+    </div> <!-- .protection-grid -->
 
     <div class="hero" style="margin-top: 40px; text-align: center;">
       <a class="cta" href="https://login.hs-heilbronn.de"><span data-i18n="cta">MFA jetzt aktivieren</span> →</a>
     </div>
+  </div>
   </div>
 
   <script>
@@ -210,7 +234,6 @@
         protection4_detail: 'Studien von Google, Microsoft und anderen Sicherheitsunternehmen zeigen einheitlich: MFA reduziert das Risiko von erfolgreichen Account-Übernahmen um über 90 %. Das ist nicht weil MFA undurchdringlich ist, sondern weil Angreifer massenhaft operieren – und der zusätzliche Aufwand für den zweiten Faktor ist zu groß. Die Angreifer wechseln zu einfacheren Zielen.',
         protection4_detail2: 'Dieser massive Schutz ist verfügbar – Sie müssen nur MFA aktivieren.',
         
-        pill_types: '🔐 MFA-Arten',
         types_title: 'Verschiedene zweite Faktoren',
         types_intro: 'Je nach Dienst können unterschiedliche MFA-Methoden verwendet werden:',
         
@@ -226,8 +249,12 @@
         type5_desc: 'Eine Reihe von statischen Codes, die Sie speichern – für den Fall, dass Sie Ihr Telefon oder Ihren Schlüssel verlieren. Verwenden sie nur als Notfall-Fallback.',
         type6_name: 'Passkeys',
         type6_desc: 'Die neueste und sicherste Methode. Ein asymmetrischer Schlüssel ist auf Ihrem Gerät gespeichert und wird zur Authentifizierung verwendet. Funktioniert auch über Plattformgrenzen hinweg.',
+
+        providers_title: 'Bekannte Anbieter von Passkeys und Sicherheitsschlüsseln',
+        providers_detail: 'Bekannte Hersteller und Projekte für Passkeys bzw. Hardware-Sicherheitsschlüssel sind unter anderem Yubico (YubiKey), SoloKeys, Nitrokey, Feitian und Thetis.',
+        providers_more: 'Detaillierte Produktinformationen und Modellvergleiche finden Sie beispielsweise bei Yubico.',
+        bsi_info: 'Mehr Informationen zu Passkeys und wie sie funktionieren finden Sie beim BSI:',
         
-        pill_recommendation: '⭐ Empfehlung',
         recommendation_title: 'Beste Praktiken',
         rec1: 'Preferred (am sichersten): Sicherheitsschlüssel oder Passkeys – können nicht gehackt, verloren oder gefälscht werden.',
         rec2: 'Sehr gut: Authenticator-App – zeitbasiert, auf Ihrem Gerät, nicht abhängig von SMS-Infrastruktur.',
@@ -259,7 +286,6 @@
         protection4_detail: 'Studies by Google, Microsoft and other security companies consistently show: MFA reduces the risk of successful account takeovers by over 90%. This is not because MFA is impenetrable, but because attackers operate on a massive scale – and the additional effort required for the second factor is too great. Attackers move on to easier targets.',
         protection4_detail2: 'This massive protection is available – you just have to enable MFA.',
         
-        pill_types: '🔐 MFA Types',
         types_title: 'Different second factors',
         types_intro: 'Depending on the service, different MFA methods can be used:',
         
@@ -276,7 +302,11 @@
         type6_name: 'Passkeys',
         type6_desc: 'The newest and most secure method. An asymmetric key is stored on your device and used for authentication. Also works across platform boundaries.',
         
-        pill_recommendation: '⭐ Recommendation',
+        providers_title: 'Known providers of passkeys and security keys',
+        providers_detail: 'Well-known vendors and projects for passkeys and hardware security keys include Yubico (YubiKey), SoloKeys, Nitrokey, Feitian and Thetis.',
+        providers_more: 'Detailed product information and model comparisons can be found, for example, at Yubico.',
+        bsi_info: 'More information about passkeys and how they work is available from the BSI:',
+        
         recommendation_title: 'Best Practices',
         rec1: 'Preferred (most secure): Security keys or passkeys – cannot be hacked, lost or faked.',
         rec2: 'Very good: Authenticator app – time-based, on your device, not dependent on SMS infrastructure.',
