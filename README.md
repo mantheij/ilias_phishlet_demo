@@ -16,4 +16,7 @@
 
 ## 2. Mac / Linux
 
-```start.sh``` öffnen
+```bash
+cd path/to/project
+./start.sh
+```
