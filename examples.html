@@ -190,8 +190,6 @@
   <div class="sidebar">
     <nav>
       <ul class="nav">
-        <li><a href="index.html" class="nav-link" data-page="index">Start</a></li>
-        <li><a href="demo.html" class="nav-link" data-page="demo">Demo</a></li>
         <li><a href="risks.html" class="nav-link" data-page="risks">Risiken</a></li>
         <li><a href="threats.html" class="nav-link" data-page="threats">Bedrohungen</a></li>
         <li><a href="steps.html" class="nav-link" data-page="steps">Schritte</a></li>
@@ -231,7 +229,7 @@
       <div class="detail-section">
         <h3 data-i18n="example3_title">Beispiel 3: Social Engineering</h3>
         <p data-i18n="example3_desc">Ein Anruf oder Chat behauptet, vom IT-Support zu sein, und bittet um Passwort-Reset.</p>
-        <p data-i18n="example3_tip"><em>Tipp:</em> Verifiziere immer den Absender!</p>
+        <p data-i18n="example3_tip">Tipp: Verifiziere immer den Absender!</p>
       </div>
 
       <div class="grid-card">
@@ -253,6 +251,7 @@
   <!-- Scripts -->
   <script src="js/jquery.js"></script>
   <script src="js/interactive.js"></script>
+  <script src="js/load-sidebar.js"></script>
   <script>
     const translations = {
       de: {
@@ -266,7 +265,7 @@
         example2_btn: 'Link klicken (simuliert)',
         example3_title: 'Beispiel 3: Social Engineering',
         example3_desc: 'Ein Anruf oder Chat behauptet, vom IT-Support zu sein, und bittet um Passwort-Reset.',
-        example3_tip: '<em>Tipp:</em> Verifiziere immer den Absender!',
+        example3_tip: 'Tipp: Verifiziere immer den Absender!',
         'pill-takeaway': '💡 Fazit',
         takeaway_title: 'Warum diese Beispiele wichtig sind',
         takeaway1: 'Phishing-Angriffe sind raffiniert und täuschen oft vor, vertrauenswürdig zu sein.',
@@ -286,7 +285,7 @@
         example2_btn: 'Click link (simulated)',
         example3_title: 'Example 3: Social Engineering',
         example3_desc: 'A call or chat claims to be from IT support and asks for password reset.',
-        example3_tip: '<em>Tip:</em> Always verify the sender!',
+        example3_tip: 'Tip: Always verify the sender!',
         'pill-takeaway': '💡 Conclusion',
         takeaway_title: 'Why These Examples Matter',
         takeaway1: 'Phishing attacks are sophisticated and often pretend to be trustworthy.',
