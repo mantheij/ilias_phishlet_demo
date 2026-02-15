@@ -19,8 +19,8 @@
       z-index: 1000;
     }
     .language-switcher button {
-      background: #1e293b; /* Dunkel für dunklen Hintergrund */
-      color: #e2e8f0; /* Hell */
+      background: #1e293b;
+      color: #e2e8f0;
       border: 1px solid #475569;
       padding: 8px 12px;
       margin-left: 5px;
@@ -33,7 +33,7 @@
       background: #334155;
     }
     .language-switcher button.active {
-      background: #22d3ee; /* Cyan accent */
+      background: #22d3ee;
       color: #0f172a;
     }
     .back-link {
@@ -85,10 +85,8 @@
       box-shadow: 0 6px 18px rgba(0,0,0,0.25);
     }
     .grid-card h2, .grid-card h3 { margin-top: 0; color: #28a745; }
-    /* protection grid layout for cards */
     .protection-grid { display: block; }
     @media (min-width: 900px) {
-      /* 3x3 layout: top row = risk | mfa | spacer; row2 = rec | prov | spacer; row3 = spacer | spacer | cta */
       .protection-grid { display: grid; grid-template-columns: 1.35fr 1.35fr 0.6fr; grid-template-rows: auto auto auto; gap: 20px; align-items: start; grid-auto-rows: minmax(120px, auto); }
       .protection-grid .risk-card { grid-column: 1; grid-row: 1; }
       .protection-grid .mfa-card { grid-column: 2 / span 33; grid-row: 1; }
@@ -96,9 +94,7 @@
       .protection-grid .prov-card { grid-column: 2; grid-row: 3; }
       .protection-grid .cta-card { grid-column: 3; grid-row: 3; display:flex; align-items:center; justify-content:center; }
       .protection-grid .mfa-card .mfa-types { margin-bottom: 0; }
-      /* remove outer margins on direct grid children so equal-height works */
       .protection-grid > .grid-card { margin: 0; height: 100%; }
-      /* Recommendation card: ensure consistent heading and body colors */
       .protection-grid .rec-card h2 { color: #28a745; }
       .protection-grid .rec-card, .protection-grid .rec-card p, .protection-grid .rec-card ul, .protection-grid .rec-card li { color: #e2e8f0; }
     }
@@ -202,7 +198,7 @@
       <p style="margin-top:12px"><span data-i18n="providers_more">Detaillierte Produktinformationen und Modellvergleiche finden Sie beispielsweise bei</span> <a href="https://www.yubico.com" target="_blank" rel="noopener noreferrer">Yubico</a>.</p>
       <p style="margin-top:12px"><span data-i18n="bsi_info">Mehr Informationen zu Passkeys und wie sie funktionieren finden Sie beim BSI:</span> <a href="https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Accountschutz/Passkeys/passkeys-anmelden-ohne-passwort_node.html" target="_blank" rel="noopener noreferrer">BSI — Passkeys: Anmelden ohne Passwort</a>.</p>
     </div>
-    </div> <!-- .protection-grid -->
+    </div>
 
     <div class="hero" style="margin-top: 40px; text-align: center;">
       <a class="cta" href="https://login.hs-heilbronn.de"><span data-i18n="cta">MFA jetzt aktivieren</span> →</a>

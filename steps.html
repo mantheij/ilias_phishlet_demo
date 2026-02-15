@@ -19,8 +19,8 @@
       z-index: 1000;
     }
     .language-switcher button {
-      background: #1e293b; /* Dunkel für dunklen Hintergrund */
-      color: #e2e8f0; /* Hell */
+      background: #1e293b;
+      color: #e2e8f0;
       border: 1px solid #475569;
       padding: 8px 12px;
       margin-left: 5px;
@@ -33,7 +33,7 @@
       background: #334155;
     }
     .language-switcher button.active {
-      background: #22d3ee; /* Cyan accent */
+      background: #22d3ee;
       color: #0f172a;
     }
     .back-link {
@@ -152,18 +152,15 @@
       font-size: 1.25rem;
     }
     .grid-card p, .grid-card ul { color: #f8fafc; }
-    /* checklist inputs */
     .grid-card.checklist-card ul { list-style: none; padding-left: 0; }
     .grid-card.checklist-card label { display: flex; align-items: center; gap: 10px; padding: 6px 0; }
     .grid-card.checklist-card .check-item { width: 18px; height: 18px; accent-color: #28a745; }
-    /* Layout grid for steps and side cards */
     .content-grid { display: block; grid-column: 1 / -1; }
     @media (min-width: 900px) {
       .content-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; }
       .content-grid .step-1 { grid-column: 1; }
       .content-grid .step-2 { grid-column: 2; }
       .content-grid .step-3 { grid-column: 3; }
-      /* second row: place step-4, checklist and congrats side-by-side */
       .content-grid .step-4 { grid-column: 1; }
       .content-grid .checklist-card { grid-column: 2; }
       .content-grid .congrats-card { grid-column: 3; }
@@ -302,8 +299,7 @@
         <p data-i18n="congrats-desc">Sie haben die wichtigsten Schritte für Kontosicherheit unternommen. Sie sind jetzt vor den meisten automatisierten Angriffsszenarien geschützt und erhöhen damit auch die Sicherheit von Organisationen und Netzwerken, in denen Sie tätig sind.</p>
         <p data-i18n="congrats-final">Denken Sie daran: Das ist nicht einmalig – überprüfen Sie gelegentlich Ihre MFA-Einstellungen und aktualisieren Sie Ihre Backup-Codes, wenn Sie neue Geräte bekommen.</p>
       </div>
-
-    </div> <!-- .content-grid -->
+    </div>
     <div class="hero" style="margin-top: 40px; text-align: center;">
       <a class="cta" href="https://login.hs-heilbronn.de"><span data-i18n="cta">Jetzt zum Login und MFA aktivieren</span> →</a>
     </div>
@@ -477,7 +473,6 @@
     window.addEventListener('DOMContentLoaded', () => {
       const savedLang = localStorage.getItem('language') || 'de';
       setLanguage(savedLang);
-      // initialize checklist checkbox state from localStorage
       document.querySelectorAll('.check-item').forEach(cb => {
         const key = cb.dataset.check;
         const val = localStorage.getItem('check_' + key);
